@@ -7,10 +7,18 @@ function App() {
     let json = await result.json()
     console.log(json)
   }
+
+  const [ingredient, setIngredient] = useState(null)
+
+  const handleChange = (e) => {
+    setIngredient(e.target.value)
+  }
+
   return (
     <div className='App'>
       <h1>Hello</h1>
-      <button onClick={() => ingredientRequest('apple')}>Give me apples</button>
+      <input type='text' onChange={handleChange}></input>
+      <button onClick={() => ingredientRequest(ingredient)}>Give me food</button>
     </div>
   );
 
