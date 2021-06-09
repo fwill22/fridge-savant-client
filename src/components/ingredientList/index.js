@@ -2,14 +2,13 @@ import React from 'react';
 import './index.css';
 import Ingredient from '../ingredient';
 
-const IngredientList = (props) => {
-  console.log('in list', props.deleteIngredient)
+const IngredientList = ({ basket, deleteIngredient }) => {
   return (
     <div className="ingredient-list">
-      {props.basket.map((ingredient) => (
+      {basket.map((ingredient) => (
         <Ingredient key={`ingredient-${ingredient.name}`} 
                     {...{name: ingredient.name}}
-                    {...{deleteIngredient: props.deleteIngredient}}/>
+                    {...{deleteIngredient: deleteIngredient}}/>
       ))}
     </div>
   );

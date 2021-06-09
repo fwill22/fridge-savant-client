@@ -38,7 +38,8 @@ const SearchComponent = () => {
   }
 
   const searchRecipes = () => {
-    ingredientRequest(basket.join(',+'))
+    const ingredientNames = basket.map(ingredient => ingredient.name)
+    ingredientRequest(ingredientNames.join(',+'))
   }
 
   const deleteIngredient = (ingredientName) => {

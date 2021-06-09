@@ -1,12 +1,11 @@
 import React from 'react';
 import './index.css'; 
 
-const Ingredient = (props) => {
-  console.log('in ingredient', props)
+const Ingredient = ({ name, deleteIngredient }) => {
   return (
     <div className="ingredient">
-      <span className="ingredient-name">{props.name.charAt(0).toUpperCase() + props.name.slice(1)}</span>
-      <button onClick={() => props.deleteIngredient(props.name)}>Delete Ingredient</button>
+      <span className="ingredient-name">{name.charAt(0).toUpperCase() + name.slice(1)}</span>
+      <button onClick={() => deleteIngredient(name)}>Delete Ingredient</button>
     </div>
   );
 };
