@@ -24,7 +24,7 @@ const SearchComponent = () => {
     if (basket.includes(ingredient)) { 
       // add flash error message
     } else {
-      setBasket(basket.concat(ingredient))
+      setBasket(basket.concat({name: ingredient}))
     }
     resetQuery()
   }
@@ -41,6 +41,10 @@ const SearchComponent = () => {
     ingredientRequest(basket.join(',+'))
   }
 
+  const deleteIngredient = (ingredientName) => {
+    setBasket(basket.filter(ingredient => ingredient.name !== ingredientName))
+  }
+
   return (
     <div>
       <input type='text' id='ingredientInput'></input>
@@ -48,7 +52,7 @@ const SearchComponent = () => {
       <button onClick={() => {
       searchRecipes()
     }}>Give me food</button>
-      <IngredientList basket={basket} />
+      <IngredientList basket={basket} deleteIngredient={deleteIngredient} />
       <button id='reset-basket-button' onClick={resetBasket}>Clear Ingredients</button>
     </div>
   )
