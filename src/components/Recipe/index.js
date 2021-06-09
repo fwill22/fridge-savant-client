@@ -1,21 +1,16 @@
 import React, { useState } from 'react';
 
-const RecipeComponent = ({ recipeIds }) => {
-  const [recipeData, setRecipeData] = useState([]);
+const RecipeComponent = ({ recipeData }) => {
+  // const [recipeData, setRecipeData] = useState(null);
 
- 
-  console.log(recipeIds)
-  fetch( `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ids=${recipeIds}` )
-    .then((response) => response.json())
-    .then((data) => { 
-      console.log(data)
-    })
- 
+  // console.log(recipeData)
+
+  
 
   return (
     <div>
       <ul>
-        <li> =</li>
+        <li>{}</li>
       </ul>
     </div>
   );
