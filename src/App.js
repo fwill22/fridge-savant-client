@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import SearchComponent from './components/search'
+import SearchComponent from './components/Search'
+// import RecipeComponent from './components/Recipe'
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
     <div className='App'>
       <h1>Hello</h1>
       <SearchComponent/>
+      
     </div>
   );
 }
