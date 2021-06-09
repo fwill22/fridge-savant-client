@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import IngredientList from '../ingredientList'; 
 
 const SearchComponent = () => {
 
@@ -35,6 +36,7 @@ const SearchComponent = () => {
       <button onClick={() => {
       searchRecipes()
     }}>Give me food</button>
+      <IngredientList basket={basket} />
     </div>
   )
 }
