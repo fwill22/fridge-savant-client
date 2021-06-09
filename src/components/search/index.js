@@ -20,7 +20,12 @@ const SearchComponent = () => {
   }
 
   const addIngredient = () => {
-    setBasket(basket.concat(document.querySelector('#ingredientInput').value))
+    const ingredient = document.querySelector('#ingredientInput').value.toLowerCase()
+    if (basket.includes(ingredient)) { 
+      // add flash error message
+    } else {
+      setBasket(basket.concat(ingredient))
+    }
     resetQuery()
   }
 
