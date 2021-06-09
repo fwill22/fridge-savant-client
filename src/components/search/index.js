@@ -50,9 +50,7 @@ const SearchComponent = () => {
     <div>
       <input type='text' id='ingredientInput'></input>
       <button onClick={addIngredient}>Add ingredient</button>
-      <button onClick={() => {
-      searchRecipes()
-    }}>Give me food</button>
+      <button onClick={() => { searchRecipes() }}>Give me food</button>
       <IngredientList basket={basket} deleteIngredient={deleteIngredient} />
       <button id='reset-basket-button' onClick={resetBasket}>Clear Ingredients</button>
     </div>
