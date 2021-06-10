@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './index.css';
 
 const LogInForm = ({ handleSignUpClick }) => {
-  const [logInDeatils, setLogInDetails] = useState({
+  const [logInDetails, setLogInDetails] = useState({
     email : "",
     password : ""
   })
@@ -27,12 +27,12 @@ const LogInForm = ({ handleSignUpClick }) => {
       <input type="email" 
              id="email" 
              placeholder="Enter email" 
-             value={logInDeatils.email} 
+             value={logInDetails.email} 
              onChange={handleChange} />
       <input type='password'
              id = 'password'
              placeholder='Password'
-             value={logInDeatils.password}
+             value={logInDetails.password}
              onChange={handleChange} />
       <button type='submit'
               onClick={handleSubmitClick} >
