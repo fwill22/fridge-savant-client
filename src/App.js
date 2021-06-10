@@ -37,7 +37,7 @@ const App = () => {
 
   const getMealInfo = (ingredients) => {
     fetch(
-      `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ingredients=${ingredients}`
+      `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY4}&ingredients=${ingredients}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -52,7 +52,7 @@ const App = () => {
   const getMealData = (mealIds) => {
     let mealIdString = mealIds.join();
     fetch(
-      `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ids=${mealIdString}`
+      `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY4}&ids=${mealIdString}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -95,11 +95,7 @@ const App = () => {
     <div>
       <input type='text' id='ingredient-input'></input>
       <button onClick={addIngredient}>Add ingredient</button>
-      <button
-        onClick={() => {
-          searchMeals();
-        }}
-      >
+      <button onClick={() => { searchMeals() }}>
         Give me food
       </button>
       <button id='reset-basket-button' onClick={clearAll}>
