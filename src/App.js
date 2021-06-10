@@ -3,7 +3,7 @@ import RecipeComponent from './components/Recipe';
 
 function App() {
   const [basket, setBasket] = useState([]);
-  const [recipeIds, setRecipeIds] = useState('');
+  const [recipeIds, setRecipeIds] = useState([]);
 
   const ingredientRequest = async (ingredient) => {
     let result = await fetch(
@@ -11,8 +11,20 @@ function App() {
     );
     let json = await result.json();
     console.log(json);
-    setRecipeIds(recipeIds.concat(formatRecipeIds(json)));
+    setRecipeIds(recipeIds.push(formatRecipeIds(json)));
+    recipeSearch(recipeIds)
   };
+
+  const recipeSearch = (recipeIds) => {
+    console.log(recipeIds)
+    recipeIds = recipeIds.join()
+    fetch( `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ids=${recipeIds}` )
+    .then((response) => response.json())
+    .then((data) => { 
+      console.log(data)
+    })
+  }
+  
 
   const addIngredient = () => {
     setBasket(basket.concat(document.querySelector('#ingredientInput').value));
