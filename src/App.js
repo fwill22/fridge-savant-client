@@ -4,6 +4,7 @@ import RecipeList from './components/RecipeList';
 function App() {
   const [basket, setBasket] = useState([]);
   const [mealData, setMealData] = useState(null);
+  const [recipeIds, setRecipeIds] = useState([]);
 
   // const ingredientRequest = async (ingredient) => {
   //   let result = await fetch(
@@ -22,14 +23,36 @@ function App() {
     )
       .then((response) => response.json())
       .then((data) => {
-        setMealData(data);
-        console.log(mealData);
+        setRecipeIds(recipeIds.push(formatRecipeIds(data)));
+        recipeSearch(recipeIds);
       })
       .catch(() => {
         console.log('Error');
       });
     resetBasket();
   }
+
+  const recipeSearch = (recipeIds) => {
+    console.log(recipeIds);
+    recipeIds = recipeIds.join();
+    fetch(
+      `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ids=${recipeIds}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setMealData(data);
+        resetRecipes();
+      });
+  };
+
+  const resetRecipes = () => {
+    setRecipeIds([]);
+  };
+
+  const formatRecipeIds = (data) => {
+    return data.map((data) => data.id).join(',');
+  };
 
   function handleChange() {
     basket.push(document.querySelector('#ingredient-input').value);

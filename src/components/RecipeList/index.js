@@ -4,8 +4,8 @@ import Recipe from '../Recipe';
 const RecipeList = ({ mealData }) => {
   return (
     <section className='recipes'>
-      {mealData.map((recipe) => {
-        return <Recipe key={recipe.id} recipe={recipe} />;
+      {mealData.map((meal) => {
+        return <Recipe key={meal.id} meal={meal} />;
       })}
     </section>
   );
