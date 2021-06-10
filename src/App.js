@@ -1,21 +1,10 @@
 import React, { useState } from 'react';
-import RecipeList from './components/RecipeList';
+import MealList from './components/MealList';
 
 function App() {
   const [basket, setBasket] = useState([]);
   const [mealData, setMealData] = useState(null);
-  const [recipeIds, setRecipeIds] = useState([]);
-
-  // const ingredientRequest = async (ingredient) => {
-  //   let result = await fetch(
-  //     `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ingredients=${ingredient}`
-  //   );
-  //   let json = await result.json();
-  //   console.log(json, basket);
-
-  //   // this is temporary
-  //   resetBasket();
-  // };
+  const [mealIds, setMealIds] = useState([]);
 
   function getMeals(ingredients) {
     fetch(
@@ -23,36 +12,28 @@ function App() {
     )
       .then((response) => response.json())
       .then((data) => {
-        setRecipeIds(recipeIds.push(formatRecipeIds(data)));
-        recipeSearch(recipeIds);
+        setMealIds(mealIds.push(formatMealIds(data)));
+        mealSearch(mealIds);
       })
       .catch(() => {
         console.log('Error');
       });
-    resetBasket();
   }
 
-  const recipeSearch = (recipeIds) => {
-    console.log(recipeIds);
-    recipeIds = recipeIds.join();
+  const mealSearch = (mealIds) => {
+    console.log(mealIds);
+    let mealIdString = mealIds.join();
     fetch(
-      `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ids=${recipeIds}`
+      `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ids=${mealIdString}`
     )
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
         setMealData(data);
-        resetRecipes();
+        resetMealIds();
       });
   };
 
-  const resetRecipes = () => {
-    setRecipeIds([]);
-  };
-
-  const formatRecipeIds = (data) => {
-    return data.map((data) => data.id).join(',');
-  };
 
   function handleChange() {
     basket.push(document.querySelector('#ingredient-input').value);
@@ -68,22 +49,32 @@ function App() {
     setBasket([]);
   }
 
-  function searchRecipes() {
+  function searchMeals() {
     getMeals(basket.join(',+'));
+  }
+
+  const formatMealIds = (data) => {
+    return data.map((data) => data.id).join(',');
+  };
+
+
+  const resetMealIds = () => {
+    setMealIds([]);
+  };
+
+  function resetMeals() {
+    setMealData(null);
   }
 
   return (
     <div>
       <input type='text' id='ingredient-input'></input>
       <button onClick={handleChange}>Add ingredient</button>
-      <button
-        onClick={() => {
-          searchRecipes();
-        }}
-      >
+      <button onClick={() => { searchMeals() }}>
         Give me food
       </button>
-      {mealData && <RecipeList mealData={mealData} />}
+      <button id='reset-basket-button' onClick={(resetBasket, resetMeals)}>Clear Ingredients</button>
+      {mealData && <MealList mealData={mealData} />}
     </div>
   );
 }
