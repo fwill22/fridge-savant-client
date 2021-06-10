@@ -1,6 +1,6 @@
 import React from 'react'
 import LogInForm from '../components/logInForm'
-import SignUpForm from '../components/signUp'
+import SignUpForm from '../components/signUpForm'
 
 const Login = () => {
 

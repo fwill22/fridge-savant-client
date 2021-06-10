@@ -37,24 +37,20 @@ const SignUpForm = () => {
         "username":signUpDetails.username,
         "password":signUpDetails.password
       }
-      const response = await fetch(url, {
+      const response = await fetch('http://localhost:5000/api/users', {
         method: 'POST',
         mode: 'cors',
         headers: {
           'Content-Type': 'application/json' 
         },
         body: JSON.stringify(userDetails)
+      }).catch((error) => {
+        // Server response error message
+        console.log(error)
       })
       return response.json()
     }
-  }
-
-  const ingredientRequest = async (ingredient) => {
-    let result = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ingredients=${ingredient}`)
-    let json = await result.json()
-    console.log(json, basket)
-  }
-  
+  }  
 
   return (
     <div className='logInForm'>
