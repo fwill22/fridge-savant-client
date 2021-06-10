@@ -22,7 +22,7 @@ function App() {
     )
       .then((response) => response.json())
       .then((data) => {
-        setMealData(data[0].id);
+        setMealData(data);
         console.log(mealData);
       })
       .catch(() => {
