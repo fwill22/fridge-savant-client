@@ -5,7 +5,8 @@ const Meal = ({ meal }) => {
 
   return (
     <div>
-     <h1><a href={meal.sourceUrl}>{meal.title}</a></h1>
+      <img src={meal.image}></img>
+      <h1><a href={meal.sourceUrl}>{meal.title}</a></h1>
     </div>
   )
 };

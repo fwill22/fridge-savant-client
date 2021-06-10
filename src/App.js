@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import MealList from './components/MealList';
 
-function App() {
+const App = () => {
   const [basket, setBasket] = useState([]);
   const [mealData, setMealData] = useState(null);
   const [mealIds, setMealIds] = useState([]);
 
-  function getMeals(ingredients) {
+  const getMeals = (ingredients) => {
     fetch(
-      `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ingredients=${ingredients}`
+      `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY3}&ingredients=${ingredients}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -24,7 +24,7 @@ function App() {
     console.log(mealIds);
     let mealIdString = mealIds.join();
     fetch(
-      `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ids=${mealIdString}`
+      `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY3}&ids=${mealIdString}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -35,21 +35,21 @@ function App() {
   };
 
 
-  function handleChange() {
+  const handleChange = () => {
     basket.push(document.querySelector('#ingredient-input').value);
     console.log(basket);
     resetQuery();
   }
 
-  function resetQuery() {
+  const resetQuery = () => {
     document.querySelector('#ingredient-input').value = '';
   }
 
-  function resetBasket() {
+  const resetBasket = () => {
     setBasket([]);
   }
 
-  function searchMeals() {
+  const searchMeals = () => {
     getMeals(basket.join(',+'));
   }
 
@@ -62,8 +62,13 @@ function App() {
     setMealIds([]);
   };
 
-  function resetMeals() {
+  const resetMeals = () => {
     setMealData(null);
+  }
+
+  const clearAll = () => {
+    resetBasket()
+    resetMeals()
   }
 
   return (
@@ -73,7 +78,7 @@ function App() {
       <button onClick={() => { searchMeals() }}>
         Give me food
       </button>
-      <button id='reset-basket-button' onClick={(resetBasket, resetMeals)}>Clear Ingredients</button>
+      <button id='reset-basket-button' onClick={clearAll}>Clear Ingredients</button>
       {mealData && <MealList mealData={mealData} />}
     </div>
   );
