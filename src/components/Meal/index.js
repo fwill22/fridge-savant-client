@@ -4,7 +4,7 @@ import './index.css';
 const Meal = ({ meal }) => {
   return (
     <div class='card'>
-      <img src={meal.image} alt='image' />
+      <img src={meal.image} alt="your meal" />
       <div class='card-body'>
         <div class='card-text'>
           <h3>{meal.title}</h3>
