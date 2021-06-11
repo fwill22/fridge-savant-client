@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './index.module.css'
+import './index.css'
 import { capitalizeFirstLetter } from '../../lib/string-utils'
 
 const Ingredient = ({ name, deleteIngredient }) => {
@@ -8,7 +8,7 @@ const Ingredient = ({ name, deleteIngredient }) => {
       <span className='ingredient-name'>
         {capitalizeFirstLetter(name)}
       </span>
-      <button data-testid="deleteIngredientButton" onClick={() => deleteIngredient(name)}>Delete Ingredient</button>
+      <button data-testid="deleteIngredientButton" onClick={() => deleteIngredient(name)}>D</button>
     </div>
   );
 };

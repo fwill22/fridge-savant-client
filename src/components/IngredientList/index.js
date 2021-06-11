@@ -1,9 +1,10 @@
 import React from 'react';
 import Ingredient from '../Ingredient';
+import './index.css'
 
 const IngredientList = ({ basket, deleteIngredient }) => {
   return (
-    <div className='ingredient-list'>
+    <div className='Ingredients'>
       {basket.map((ingredient) => (
         <Ingredient
           key={`ingredient-${ingredient.name}`}

@@ -1,5 +1,5 @@
-
 import React, { useState, useEffect } from 'react';
+import './App.css';
 import MealList from './components/MealList';
 import IngredientList from './components/IngredientList';
 
@@ -37,7 +37,7 @@ const App = () => {
 
   const getMealInfo = (ingredients) => {
     fetch(
-      `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ingredients=${ingredients}`
+      `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY3}&ingredients=${ingredients}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -52,7 +52,7 @@ const App = () => {
   const getMealData = (mealIds) => {
     let mealIdString = mealIds.join();
     fetch(
-      `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ids=${mealIdString}`
+      `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY3}&ids=${mealIdString}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -92,21 +92,24 @@ const App = () => {
   };
 
   return (
-    <div>
-      <input type='text' id='ingredient-input'></input>
-      <button onClick={addIngredient}>Add ingredient</button>
-      <button
-        onClick={() => {
-          searchMeals();
-        }}
-      >
-        Give me food
-      </button>
-      <button id='reset-basket-button' onClick={clearAll}>
-        Clear Ingredients
-      </button>
-      <IngredientList basket={basket} deleteIngredient={deleteIngredient} />
-      {mealData && <MealList mealData={mealData} />}
+    <div class='Container'>
+      <div class='Header'>Header</div>
+      <div class='Search-Box'>
+        <input type='text' id='ingredient-input'></input>
+        <button onClick={addIngredient}>Add ingredient</button>
+        <button onClick={() => { searchMeals() }} className='search-button' >
+          Give me food
+        </button>
+        <button id='reset-basket-button' onClick={clearAll}>
+          Clear Ingredients
+        </button>
+      </div>
+      <div class='Ingredients'>
+        <IngredientList basket={basket} deleteIngredient={deleteIngredient} />
+      </div>
+      <div class='Recipes'>{mealData && <MealList mealData={mealData} />}</div>
+      <div class='User'>User</div>
+      <div class='Footer'>Footer</div>
     </div>
   );
 };
