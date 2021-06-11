@@ -1,3 +1,5 @@
+
+
 .login-container {
   display: grid;
   align-items: center;
@@ -10,6 +12,7 @@
     ". formArea ."
     ". . ."
   ;
+  text-align: center;
 }
 
 .login-header {
@@ -45,12 +48,14 @@
   transition: transform .6s linear;
   justify-items: center;
 }
+
 .front {
   transform: perspective(600px) rotateY(0deg);
 }
 .back{
    transform: perspective(600px) rotateY(-180deg); 
 }
+
 
 .card.rotated > .front{
   transform: perspective(600px) rotateY(180deg);

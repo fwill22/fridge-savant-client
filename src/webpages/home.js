@@ -36,7 +36,7 @@ const Home = () => {
 
   const getMealInfo = (ingredients) => {
     fetch(
-      `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY3}&ingredients=${ingredients}`
+      `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ingredients=${ingredients}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -51,7 +51,7 @@ const Home = () => {
   const getMealData = (mealIds) => {
     let mealIdString = mealIds.join();
     fetch(
-      `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY3}&ids=${mealIdString}`
+      `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ids=${mealIdString}`
     )
       .then((response) => response.json())
       .then((data) => {
