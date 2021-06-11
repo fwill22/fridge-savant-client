@@ -6,7 +6,7 @@
   grid-auto-flow: row;
   grid-template-areas:
     'Header Header Header'
-    'Slider Slider Slider'
+    'WelcomeText Slider Slider'
     'Search-Box Search-Box Search-Box'
     'Ingredients Ingredients Ingredients'
     'Recipes Recipes User'
@@ -20,8 +20,14 @@
   grid-area: Header;
 }
 
+.WelcomeText {
+  grid-area: WelcomeText;
+  padding-left: 40px;
+}
+
 .Slider {
   grid-area: Slider;
+  padding-top: 20px;
 }
 
 .Search-Box {

@@ -1,24 +1,26 @@
-/* Slideshow */
-
 .slideshow {
   margin: 0 auto;
   overflow: hidden;
-  max-width: 500px;
+  max-width: 700px;
 }
 
 .slideshowSlider {
   white-space: nowrap;
-  transition: ease 1000ms;
+  transition: ease 1500ms;
 }
 
-.slide {
+.slideContainer {
   display: inline-block;
   text-align: center;
   height: 400px;
   width: 100%;
 }
 
-/* Buttons */
+.slide {
+  max-width: 100%;
+  max-height: 100%;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1);
+}
 
 .slideshowDots {
   text-align: center;
@@ -37,5 +39,5 @@
 }
 
 .slideshowDot.active {
-  background-color: #6a0dad;
+  background-color: #d099a0;
 }

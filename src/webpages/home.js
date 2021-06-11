@@ -4,6 +4,7 @@ import MealList from '../components/MealList';
 import IngredientList from '../components/IngredientList';
 import Header from '../components/Header';
 import Slider from '../components/Slider';
+import WelcomeText from '../components/WelcomeText';
 
 const Home = () => {
   const [basket, setBasket] = useState([]);
@@ -96,6 +97,9 @@ const Home = () => {
     <div class='Container'>
       <div class='Header'>
         <Header />
+      </div>
+      <div class='WelcomeText'>
+        <WelcomeText />
       </div>
       <div class='Slider'>
         <Slider />
