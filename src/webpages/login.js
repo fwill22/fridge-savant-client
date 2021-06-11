@@ -1,6 +1,7 @@
 import React from 'react'
-import LogInForm from '../components/logInForm'
-import SignUpForm from '../components/signUp'
+import LoginForm from '../components/loginForm'
+import SignUpForm from '../components/signUpForm'
+import './login.css'
 
 const Login = () => {
 
@@ -10,11 +11,10 @@ const Login = () => {
   }
 
   return (
-    <div>
-      <h1>Fridge Savant - Login</h1>
-      <p>Login Page</p>
-      <LogInForm handleSignUpClick={handleSignUpClick} />
-      <SignUpForm />
+    <div className='login-container'>
+      <h1 className='login-header'>Fridge Savant - Login</h1>
+      <LoginForm handleSignUpClick={handleSignUpClick} />
+      {/* <SignUpForm /> */}
     </div>
   )
 }
