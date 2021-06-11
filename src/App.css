@@ -1,26 +1,27 @@
-
-
-
 .Container {
   display: grid;
   grid-template-columns: 1fr 1.2fr 0.8fr;
-  grid-template-rows: 0.5fr 0.3fr 1.1fr 2.9fr 0.2fr;
-  grid-auto-rows: 1fr;
+  grid-template-rows: 0.1fr 0.1fr 0.1fr 0.1fr 2.1fr 0.2fr;
   gap: 10px 10px;
   grid-auto-flow: row;
   grid-template-areas:
     'Header Header Header'
+    'Slider Slider Slider'
     'Search-Box Search-Box Search-Box'
     'Ingredients Ingredients Ingredients'
     'Recipes Recipes User'
     'Footer Footer Footer';
   width: 100vw;
-  height: 100vh;
+
+  background-color: #f2f5f7;
 }
 
 .Header {
   grid-area: Header;
-  background-color: red;
+}
+
+.Slider {
+  grid-area: Slider;
 }
 
 .Search-Box {
@@ -35,7 +36,7 @@
 
 .Recipes {
   grid-area: Recipes;
-  background-color: pink;
+  padding: 10px 10px 10px 40px;
 }
 
 .User {

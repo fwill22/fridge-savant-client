@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import '../App.css';
 import MealList from '../components/MealList';
 import IngredientList from '../components/IngredientList';
+import Header from '../components/Header';
+import Slider from '../components/Slider';
 
 const Home = () => {
   const [basket, setBasket] = useState([]);
@@ -36,7 +38,7 @@ const Home = () => {
 
   const getMealInfo = (ingredients) => {
     fetch(
-      `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ingredients=${ingredients}`
+      `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY5}&ingredients=${ingredients}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -51,7 +53,7 @@ const Home = () => {
   const getMealData = (mealIds) => {
     let mealIdString = mealIds.join();
     fetch(
-      `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ids=${mealIdString}`
+      `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY5}&ids=${mealIdString}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -92,11 +94,21 @@ const Home = () => {
 
   return (
     <div class='Container'>
-      <div class='Header'>Header</div>
+      <div class='Header'>
+        <Header />
+      </div>
+      <div class='Slider'>
+        <Slider />
+      </div>
       <div class='Search-Box'>
         <input type='text' id='ingredient-input'></input>
         <button onClick={addIngredient}>Add ingredient</button>
-        <button onClick={() => { searchMeals() }} className='search-button' >
+        <button
+          onClick={() => {
+            searchMeals();
+          }}
+          className='search-button'
+        >
           Give me food
         </button>
         <button id='reset-basket-button' onClick={clearAll}>
