@@ -1,4 +1,5 @@
 import React from 'react';
+import './index.css'
 
 const Ingredient = ({ name, deleteIngredient }) => {
   return (
@@ -6,7 +7,7 @@ const Ingredient = ({ name, deleteIngredient }) => {
       <span className='ingredient-name'>
         {name.charAt(0).toUpperCase() + name.slice(1)}
       </span>
-      <button onClick={() => deleteIngredient(name)}>Delete Ingredient</button>
+      <button class = 'delete-ingredient' onClick={() => deleteIngredient(name)}>D</button>
     </div>
   );
 };

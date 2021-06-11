@@ -39,6 +39,7 @@
   flex-flow: column nowrap;
   justify-content: flex-start;
   padding: 1.8em;
+  position: relative;
 }
 .card-body button {
   min-width: 8.3em;
@@ -115,4 +116,11 @@ a:hover {
   .card img {
     max-width: 45%;
   }
+}
+
+.bookmark-meal{
+  position: absolute;
+  top: 73%;
+  right: 5%;
+  transform: translate(-10%);
 }

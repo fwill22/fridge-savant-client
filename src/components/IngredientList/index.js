@@ -1,5 +1,6 @@
 import React from 'react';
 import Ingredient from '../Ingredient';
+import './index.css'
 
 const IngredientList = ({ basket, deleteIngredient }) => {
   return (

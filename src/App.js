@@ -3,6 +3,8 @@ import './App.css';
 import MealList from './components/MealList';
 import IngredientList from './components/IngredientList';
 
+
+
 const App = () => {
   const [basket, setBasket] = useState([]);
   const [mealData, setMealData] = useState(null);
@@ -96,12 +98,7 @@ const App = () => {
       <div class='Search-Box'>
         <input type='text' id='ingredient-input'></input>
         <button onClick={addIngredient}>Add ingredient</button>
-        <button
-          onClick={() => {
-            searchMeals();
-          }}
-          className='search-button'
-        >
+        <button onClick={() => { searchMeals() }} className='search-button' >
           Give me food
         </button>
         <button id='reset-basket-button' onClick={clearAll}>

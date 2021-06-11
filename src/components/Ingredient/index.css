@@ -1,0 +1,22 @@
+.ingredient{
+  display: inline-block;
+  background-color: white;
+  min-height: 100px;
+  min-width: 100px;
+  border-radius: 0.5rem;
+  margin: 2%;
+  position: relative;
+}
+
+.ingredient-name{
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+.delete-ingredient{
+  top: 70%;
+  left: 70%;
+  position: absolute;
+}

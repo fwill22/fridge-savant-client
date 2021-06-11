@@ -12,6 +12,7 @@ const Meal = ({ meal }) => {
           <p>{meal.summary}</p>
         </div>
         <button>More...</button>
+        <button class='bookmark-meal'>B</button>
       </div>
     </div>
   );
