@@ -11,3 +11,13 @@
   box-shadow: 4px 4px 10px 4px #888888;
   padding: 10px;
 }
+
+.closeSignUp {
+  text-align: right;
+  padding-right: 10px;
+  padding-top: 10px;
+}
+
+.signUpTitle {
+  margin-bottom: 40px;
+}

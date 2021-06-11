@@ -11,10 +11,10 @@ const SignUpForm = ({ handleSignUpClick }) => {
   })
 
   const handleChange = (event) => {
-    const {id, value} = event.target
+    const {name, value} = event.target
     setSignUpDetails(prevState => ({
       ...prevState,
-      [id] : value
+      [name] : value
     }))
   }
 
@@ -22,6 +22,7 @@ const SignUpForm = ({ handleSignUpClick }) => {
     event.preventDefault()
     if(signUpDetails.password === signUpDetails.confirmPassword) {
       sendDetailsToServer()
+      handleSignUpClick()
     } else {
       console.log("Error: Passwords do not match") 
       // Add in flash message 
@@ -54,29 +55,36 @@ const SignUpForm = ({ handleSignUpClick }) => {
 
   return (
     <div className='signUpForm'>
-      <h2 className='signUpTitle'>Sign Up</h2>
+      <div className='closeSignUp'> 
+        <span className='closeSignUpLink' onClick={handleSignUpClick}>X</span>
+      </div>
+      <h2 className='signUpTitle'>Enter your details</h2>
       <form onSubmit={handleSubmitClick}> 
         <input type="email" 
+              name='email'
               className="form-input"
               id="signUpEmail" 
-              placeholder="Enter email" 
+              placeholder="Email" 
               value={signUpDetails.email} 
               onChange={handleChange}
               required />
-        <input type="text" 
+        <input type="text"
+              name='name'              
               className="form-input"
               id="signUpName" 
-              placeholder="Enter name" 
+              placeholder="Name" 
               value={signUpDetails.name} 
               onChange={handleChange}
               required />
         <input type="text"
+              name='username'        
               className="form-input" 
               id="signUpUsername" 
-              placeholder="Enter Username" 
+              placeholder="Username" 
               value={signUpDetails.username} 
               onChange={handleChange} />
         <input type='password'
+              name='password'
               className="form-input"
               id = 'signUpPassword'
               placeholder='Password'
@@ -84,18 +92,16 @@ const SignUpForm = ({ handleSignUpClick }) => {
               onChange={handleChange}
               required />
         <input type='password'
+              name='confirmPassword'
               className="form-input"
               id = 'signUpConfirmPassword'
-              placeholder='Confirm Password'
+              placeholder='Confirm password'
               value={signUpDetails.confirmPassword}
               onChange={handleChange}
               required />
         <br/>
-        <input type='submit' value='Sign Up' />
+        <input className='formButton' type='submit' value='Sign Up' />
       </form>
-      <p>
-        Already have an account? <a className='signUpLink' onClick={handleSignUpClick}>Log In!</a>
-      </p>
     </div>
   )
 }

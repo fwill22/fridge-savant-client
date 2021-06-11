@@ -44,10 +44,10 @@ const LoginForm = ({ handleSignUpClick }) => {
               onChange={handleChange}
               required />
         <br/>
-        <input type='submit' id='loginButton' value='Log In'/>
+        <input type='submit' className='formButton' id='loginButton' value='Log In'/>
       </form>
       <p>
-        Don't have an account? <a className='signUpLink' onClick={handleSignUpClick}>Sign Up!</a>
+        Don't have an account? <span className='signUpLink' onClick={handleSignUpClick}>Sign Up!</span>
       </p>
     </div>
   )
