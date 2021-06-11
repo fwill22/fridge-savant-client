@@ -1,0 +1,87 @@
+.login-container {
+  display: grid;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  grid-template-columns: 10% Auto 10%;
+  grid-template-rows: 20% 50% auto;
+  grid-template-areas: 
+    "header header header"
+    ". formArea ."
+    ". . ."
+  ;
+}
+
+.login-header {
+  grid-area: header;
+}
+
+.form-input {
+  margin-bottom: 10px;
+  width: 70%;
+  height: 40px;
+  border-radius: 20px;
+  border-style: hidden;
+  border-color: white;
+  background-color: rgb(206, 206, 206);
+  padding-left: 15px;
+}
+
+.form-wrapper {
+  grid-area: formArea;
+  position:relative;
+  width: 60%;
+  height: 450px;
+  min-width: 300px;
+  max-width: 410px;
+  margin:auto;
+}
+
+.front,.back{
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  position: absolute;
+  transition: transform .6s linear;
+  justify-items: center;
+}
+.front {
+  transform: perspective(600px) rotateY(0deg);
+}
+.back{
+   transform: perspective(600px) rotateY(-180deg); 
+}
+
+.card.rotated > .front{
+  transform: perspective(600px) rotateY(180deg);
+}
+.card.rotated > .back{ 
+  transform: perspective(600px) rotateY(0deg);
+}  
+
+.formButton {
+  display:inline-block;
+  padding:0.35em 1.2em;
+  border:0.1em solid black;
+  background-color: white;
+  margin:0 0.3em 0.3em 0;
+  border-radius: 20px;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:black;
+  text-align:center;
+  transition: all 0.2s;
+}
+.formButton:hover{
+  color:white;
+  background-color:#020101;
+  cursor: pointer;
+}
+@media all and (max-width:30em){
+.formButton{
+  display:block;
+  margin:0.4em auto;
+  }
+}
