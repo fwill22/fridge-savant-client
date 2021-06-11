@@ -54,40 +54,43 @@ const SignUpForm = () => {
 
   return (
     <div className='logInForm'>
-      <input type="email" 
-             className="form-input"
-             id="signUpEmail" 
-             placeholder="Enter email" 
-             value={signUpDetails.email} 
-             onChange={handleChange} />
-      <input type="text" 
-             className="form-input"
-             id="signUpName" 
-             placeholder="Enter name" 
-             value={signUpDetails.name} 
-             onChange={handleChange} />
-      <input type="text"
-             className="form-input" 
-             id="signUpUsername" 
-             placeholder="Enter Username" 
-             value={signUpDetails.username} 
-             onChange={handleChange} />
-      <input type='password'
-             className="form-input"
-             id = 'signUpPassword'
-             placeholder='Password'
-             value={signUpDetails.password}
-             onChange={handleChange} />
-      <input type='password'
-             className="form-input"
-             id = 'signUpConfirmPassword'
-             placeholder='Confirm Password'
-             value={signUpDetails.confirmPassword}
-             onChange={handleChange} />
-      <button type='submit'
-              onClick={handleSubmitClick} >
-        Sign Up
-      </button>
+      <form onSubmit={handleSubmitClick}> 
+        <input type="email" 
+              className="form-input"
+              id="signUpEmail" 
+              placeholder="Enter email" 
+              value={signUpDetails.email} 
+              onChange={handleChange}
+              required />
+        <input type="text" 
+              className="form-input"
+              id="signUpName" 
+              placeholder="Enter name" 
+              value={signUpDetails.name} 
+              onChange={handleChange}
+              required />
+        <input type="text"
+              className="form-input" 
+              id="signUpUsername" 
+              placeholder="Enter Username" 
+              value={signUpDetails.username} 
+              onChange={handleChange} />
+        <input type='password'
+              className="form-input"
+              id = 'signUpPassword'
+              placeholder='Password'
+              value={signUpDetails.password}
+              onChange={handleChange}
+              required />
+        <input type='password'
+              className="form-input"
+              id = 'signUpConfirmPassword'
+              placeholder='Confirm Password'
+              value={signUpDetails.confirmPassword}
+              onChange={handleChange}
+              required />
+        <input type='submit' value='Sign Up' />
+      </form>
     </div>
   )
 }

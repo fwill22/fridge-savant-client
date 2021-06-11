@@ -25,26 +25,27 @@ const LoginForm = ({ handleSignUpClick }) => {
   return (
     <div className='loginForm login-form'>
       <h2 className='loginTitle'>Login</h2>
-      <input type="email" 
-             className="form-input"
-             id="loginEmail" 
-             name="email"
-             placeholder="Email" 
-             value={logInDetails.email} 
-             onChange={handleChange} />
-      <br/>
-      <input type='password'
-             className="form-input"
-             id = 'loginPassword'
-             name='password'
-             placeholder='Password'
-             value={logInDetails.password}
-             onChange={handleChange} />
-      <br/>
-      <button type='submit' id='loginButton'
-              onClick={handleSubmitClick} >
-        Log In
-      </button>
+      <form onSubmit={handleSubmitClick}>
+        <input type="email" 
+              className="form-input"
+              id="loginEmail" 
+              name="email"
+              placeholder="Email" 
+              value={logInDetails.email} 
+              onChange={handleChange}
+              required />
+        <br/>
+        <input type='password'
+              className="form-input"
+              id = 'loginPassword'
+              name='password'
+              placeholder='Password'
+              value={logInDetails.password}
+              onChange={handleChange}
+              required />
+        <br/>
+        <input type='submit' id='loginButton' value='Log In'/>
+      </form>
       <p>
         Don't have an account? <a className='signUpLink' onClick={handleSignUpClick}>Sign Up!</a>
       </p>
