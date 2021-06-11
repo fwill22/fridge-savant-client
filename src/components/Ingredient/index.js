@@ -1,12 +1,14 @@
 import React from 'react';
+import styles from './index.module.css'
+import { capitalizeFirstLetter } from '../../lib/string-utils'
 
 const Ingredient = ({ name, deleteIngredient }) => {
   return (
     <div className='ingredient'>
       <span className='ingredient-name'>
-        {name.charAt(0).toUpperCase() + name.slice(1)}
+        {capitalizeFirstLetter(name)}
       </span>
-      <button onClick={() => deleteIngredient(name)}>Delete Ingredient</button>
+      <button data-testid="deleteIngredientButton" onClick={() => deleteIngredient(name)}>Delete Ingredient</button>
     </div>
   );
 };
