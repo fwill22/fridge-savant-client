@@ -65,6 +65,7 @@
 .formButton:hover{
   color:white;
   background-color:#020101;
+  cursor: pointer;
 }
 @media all and (max-width:30em){
 .formButton{
