@@ -24,20 +24,21 @@ const LogInForm = ({ handleSignUpClick }) => {
 
   return (
     <div className='logInForm'>
-      <input type="email" 
-             id="email" 
-             placeholder="Enter email" 
-             value={logInDetails.email} 
-             onChange={handleChange} />
-      <input type='password'
-             id = 'password'
-             placeholder='Password'
-             value={logInDetails.password}
-             onChange={handleChange} />
-      <button type='submit'
-              onClick={handleSubmitClick} >
-        Log In
-      </button>
+      <form onSubmit={handleSubmitClick}>
+        <input type="email" 
+              id="email" 
+              placeholder="Enter email" 
+              value={logInDetails.email} 
+              onChange={handleChange} />
+        <input type='password'
+              id = 'password'
+              placeholder='Password'
+              value={logInDetails.password}
+              onChange={handleChange} />
+        <input type='submit' value='Log In'>
+        </input>
+      </form>
+
       <p>
         Don't have an account? <a onClick={handleSignUpClick}>Sign Up!</a>
       </p>
