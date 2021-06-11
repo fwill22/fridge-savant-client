@@ -4,7 +4,6 @@ import MealList from './components/MealList';
 import IngredientList from './components/IngredientList';
 
 
-
 const App = () => {
   const [basket, setBasket] = useState([]);
   const [mealData, setMealData] = useState(null);
@@ -38,7 +37,7 @@ const App = () => {
 
   const getMealInfo = (ingredients) => {
     fetch(
-      `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY2}&ingredients=${ingredients}`
+      `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY3}&ingredients=${ingredients}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -53,7 +52,7 @@ const App = () => {
   const getMealData = (mealIds) => {
     let mealIdString = mealIds.join();
     fetch(
-      `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY2}&ids=${mealIdString}`
+      `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY3}&ids=${mealIdString}`
     )
       .then((response) => response.json())
       .then((data) => {
