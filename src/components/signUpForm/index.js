@@ -100,7 +100,7 @@ const SignUpForm = ({ handleSignUpClick }) => {
               onChange={handleChange}
               required />
         <br/>
-        <input className='formButton' type='submit' value='Sign Up' />
+        <input className='formButton' id='signUpButton' type='submit' value='Sign Up' />
       </form>
     </div>
   )

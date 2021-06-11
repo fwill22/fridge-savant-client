@@ -16,12 +16,24 @@
   grid-area: header;
 }
 
+.form-input {
+  margin-bottom: 10px;
+  width: 70%;
+  height: 40px;
+  border-radius: 20px;
+  border-style: hidden;
+  border-color: white;
+  background-color: rgb(206, 206, 206);
+  padding-left: 15px;
+}
+
 .form-wrapper {
   grid-area: formArea;
   position:relative;
   width: 60%;
   height: 450px;
   min-width: 300px;
+  max-width: 410px;
   margin:auto;
 }
 
