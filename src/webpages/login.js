@@ -7,23 +7,18 @@ const Login = () => {
 
   const [isRotated, setIsRotated] = React.useState(false);
 
-  const onRotate = () => setIsRotated((rotated) => !rotated);
-
-  const handleSignUpClick = (event) => {
-    console.log('test')
-    //display sign up form component here
-  }
+  const handleSignUpClick = () => setIsRotated((rotated) => !rotated);
 
   return (
     <div className='login-container'>
       <h1 className='login-header'>Fridge Savant - Login</h1>
       <div className='form-wrapper'>
-        <div className={`card ${isRotated ? 'rotated' : ''}`} onClick={onRotate}>
+        <div className={`card ${isRotated ? 'rotated' : ''}`} >
           <div className='front'>
             <LoginForm handleSignUpClick={handleSignUpClick} />
           </div>
           <div className='back'>
-            <SignUpForm />
+            <SignUpForm handleSignUpClick={handleSignUpClick} />
           </div>
         </div>
       </div>

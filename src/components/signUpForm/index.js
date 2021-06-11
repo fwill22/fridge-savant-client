@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './index.css';
 
-const SignUpForm = () => {
+const SignUpForm = ({ handleSignUpClick }) => {
   const [signUpDetails, setSignUpDetails] = useState({
     email : "",
     name : "",
@@ -91,6 +91,9 @@ const SignUpForm = () => {
               required />
         <input type='submit' value='Sign Up' />
       </form>
+      <p>
+        Already have an account? <a className='signUpLink' onClick={handleSignUpClick}>Log In!</a>
+      </p>
     </div>
   )
 }
