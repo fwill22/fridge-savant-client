@@ -57,10 +57,10 @@
 }
 
 
-.card.rotated > .front{
+.login-card.rotated > .front{
   transform: perspective(600px) rotateY(180deg);
 }
-.card.rotated > .back{ 
+.login-card.rotated > .back{ 
   transform: perspective(600px) rotateY(0deg);
 }  
 
