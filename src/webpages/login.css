@@ -20,9 +20,8 @@
   grid-area: formArea;
   position:relative;
   width: 60%;
-  height: 80%;
+  height: 450px;
   min-width: 300px;
-  min-height: 500px;
   margin:auto;
 }
 
@@ -49,5 +48,27 @@
 }  
 
 .formButton {
-  
+  display:inline-block;
+  padding:0.35em 1.2em;
+  border:0.1em solid black;
+  background-color: white;
+  margin:0 0.3em 0.3em 0;
+  border-radius: 20px;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:black;
+  text-align:center;
+  transition: all 0.2s;
+}
+.formButton:hover{
+  color:white;
+  background-color:#020101;
+}
+@media all and (max-width:30em){
+.formButton{
+  display:block;
+  margin:0.4em auto;
+  }
 }
