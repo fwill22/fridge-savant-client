@@ -54,6 +54,7 @@ const SignUpForm = ({ handleSignUpClick }) => {
 
   return (
     <div className='signUpForm'>
+      <h2 className='signUpTitle'>Sign Up</h2>
       <form onSubmit={handleSubmitClick}> 
         <input type="email" 
               className="form-input"
@@ -89,6 +90,7 @@ const SignUpForm = ({ handleSignUpClick }) => {
               value={signUpDetails.confirmPassword}
               onChange={handleChange}
               required />
+        <br/>
         <input type='submit' value='Sign Up' />
       </form>
       <p>
