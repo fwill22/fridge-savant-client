@@ -1,14 +1,20 @@
 // import React from 'react';
-import './index.css'
+import './index.css';
 
-const Meal = ({ meal}) => {
+const Meal = ({ meal }) => {
   return (
-    <div className="container">
-      <img src={meal.image}></img>
-      <h1><a href={meal.sourceUrl}>{meal.title}</a></h1>
-      <h5>Ready in {meal.readyInMinutes} minutes</h5>
+    <div class='card'>
+      <img src={meal.image} alt='image' />
+      <div class='card-body'>
+        <div class='card-text'>
+          <h3>{meal.title}</h3>
+          <p>Ready in {meal.readyInMinutes} minutes</p>
+          <p>{meal.summary}</p>
+        </div>
+        <button>More...</button>
+      </div>
     </div>
-  )
+  );
 };
 
 export default Meal;

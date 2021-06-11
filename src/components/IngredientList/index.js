@@ -3,7 +3,7 @@ import Ingredient from '../Ingredient';
 
 const IngredientList = ({ basket, deleteIngredient }) => {
   return (
-    <div className='ingredient-list'>
+    <div className='Ingredients'>
       {basket.map((ingredient) => (
         <Ingredient
           key={`ingredient-${ingredient.name}`}
