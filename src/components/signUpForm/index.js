@@ -53,7 +53,7 @@ const SignUpForm = () => {
   }  
 
   return (
-    <div className='logInForm'>
+    <div className='signUpForm'>
       <form onSubmit={handleSubmitClick}> 
         <input type="email" 
               className="form-input"

@@ -23,7 +23,7 @@ const LoginForm = ({ handleSignUpClick }) => {
   
 
   return (
-    <div className='loginForm login-form'>
+    <div className='loginForm'>
       <h2 className='loginTitle'>Login</h2>
       <form onSubmit={handleSubmitClick}>
         <input type="email" 
