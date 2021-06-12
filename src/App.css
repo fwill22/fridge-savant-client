@@ -22,7 +22,10 @@
 
 .WelcomeText {
   grid-area: WelcomeText;
-  padding-left: 40px;
+  padding-left: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .Slider {
