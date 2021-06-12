@@ -43,7 +43,6 @@ const Slider = () => {
         {colors.map((url, index) => (
           <div className='slideContainer'>
             <img className='slide' key={index} src={url} />
-            <div className='slideText'>Text</div>
           </div>
         ))}
       </div>

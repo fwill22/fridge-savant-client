@@ -1,7 +1,7 @@
 .welcome-container {
   text-align: center;
   font-size: 60px;
-  color: rgb(0, 0, 0, 0.5);
+  color: #d099a0;
   animation: fadein 3s;
   -moz-animation: fadein 3s; /* Firefox */
   -webkit-animation: fadein 3s; /* Safari and Chrome */

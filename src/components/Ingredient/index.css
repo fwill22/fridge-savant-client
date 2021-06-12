@@ -1,22 +1,32 @@
-.ingredient{
-  display: inline-block;
+.ingredient-container {
+  display: flex;
   background-color: white;
-  min-height: 100px;
-  min-width: 100px;
-  border-radius: 0.5rem;
-  margin: 2%;
+  min-height: 250px;
+  min-width: 250px;
+  border-radius: 2px;
+  margin: 10px;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1);
+  flex-direction: column;
   position: relative;
 }
 
-.ingredient-name{
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  position: absolute;
+.ingredient-name {
+  margin: 10px;
+  padding: 10%;
+  background-color: #fff5f7;
+  font-size: 30px;
+  color: #3f3f3f;
+  height: 120px;
 }
 
-.delete-ingredient{
-  top: 70%;
-  left: 70%;
+.ingredient-icon {
+  color: #d099a0;
   position: absolute;
+  height: 25px;
+  bottom: 5%;
+  right: 5%;
+}
+
+.ingredient-icon:hover {
+  cursor: pointer;
 }

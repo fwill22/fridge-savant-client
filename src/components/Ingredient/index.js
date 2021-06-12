@@ -1,14 +1,19 @@
 import React from 'react';
-import './index.css'
-import { capitalizeFirstLetter } from '../../lib/string-utils'
+import './index.css';
+import { capitalizeFirstLetter } from '../../lib/string-utils';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Ingredient = ({ name, deleteIngredient }) => {
   return (
-    <div className='ingredient'>
-      <span className='ingredient-name'>
-        {capitalizeFirstLetter(name)}
-      </span>
-      <button data-testid="deleteIngredientButton" onClick={() => deleteIngredient(name)}>D</button>
+    <div className='ingredient-container'>
+      <div className='ingredient-name'>{capitalizeFirstLetter(name)}</div>
+      <FontAwesomeIcon
+        icon={faTrash}
+        data-testid='deleteIngredientButton'
+        onClick={() => deleteIngredient(name)}
+        class='ingredient-icon'
+      />
     </div>
   );
 };
