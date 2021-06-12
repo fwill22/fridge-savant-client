@@ -24,7 +24,7 @@ const LoginForm = ({ handleSignUpClick }) => {
 
   return (
     <div className='loginForm'>
-      <h2 className='loginTitle'>Login</h2>
+      <h2 className='loginTitle' data-testid='loginTitle'>Login</h2>
       <form onSubmit={handleSubmitClick}>
         <input type="email" 
               className="form-input"
@@ -44,10 +44,10 @@ const LoginForm = ({ handleSignUpClick }) => {
               onChange={handleChange}
               required />
         <br/>
-        <input type='submit' className='formButton' id='loginButton' value='Log In'/>
+        <input type='submit' className='formButton' id='loginButton' value='Log In' data-testid='loginButton'/>
       </form>
       <p>
-        Don't have an account? <span className='signUpLink' onClick={handleSignUpClick}>Sign Up!</span>
+        Don't have an account? <span className='signUpLink' data-testid='signUpLink' onClick={handleSignUpClick}>Sign Up!</span>
       </p>
     </div>
   )

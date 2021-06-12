@@ -2,6 +2,7 @@ import Ingredient from '.'
 import { render, fireEvent } from "@testing-library/react"
 import * as StringUtils from "../../lib/string-utils"
 
+
 jest.mock("../../lib/string-utils")
 
 let defaultProps;

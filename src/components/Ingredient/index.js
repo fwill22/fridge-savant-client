@@ -4,6 +4,7 @@ import { capitalizeFirstLetter } from '../../lib/string-utils';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+
 const Ingredient = ({ name, deleteIngredient }) => {
   return (
     <div className='ingredient-container'>
