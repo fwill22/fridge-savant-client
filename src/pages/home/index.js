@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import '../App.css';
-import MealList from '../components/MealList';
-import IngredientList from '../components/IngredientList';
-import Header from '../components/Header';
-import Slider from '../components/Slider';
-import WelcomeText from '../components/WelcomeText';
+import MealList from '../../components/MealList';
+import IngredientList from '../../components/IngredientList';
+import Header from '../../components/Header';
+import Slider from '../../components/Slider';
+import WelcomeText from '../../components/WelcomeText';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCarrot } from '@fortawesome/free-solid-svg-icons';
 

@@ -1,11 +1,11 @@
 import React from 'react';
-import Webpages from './webpages';
+import Pages from './pages';
 import './App.css';
 
 const App = () => {
   return (
     <div className='App'>
-      <Webpages />
+      <Pages />
     </div>
   );
 };
