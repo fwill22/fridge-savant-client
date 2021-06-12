@@ -77,7 +77,7 @@
 
 :root {
   --sw: 400px;
-  --sh: 70px;
+  --sh: 80px;
   --fs: 1.1em;
   --i1: 24px;
   --i2: 18px;
@@ -89,7 +89,7 @@
   :root {
     --sw: 320px;
     --fs: 0.9em;
-    --sh: 60px;
+    --sh: 80px;
     --i1: 20px;
     --i2: 14px;
     --t: 12px;
@@ -195,8 +195,20 @@
   height: 70px;
   width: 200px;
   margin: 10px;
-  background-color: #fff5f7;
-  border: none;
-  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border: solid 0.1em rgb(199, 199, 199);
+  font-size: 15px;
+  color: #636262;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.1);
   border-radius: 5px;
+}
+
+.search-recipe-button:hover,
+.reset-basket-button:hover {
+  background-color: #f0929d;
+  border: none;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
 }
