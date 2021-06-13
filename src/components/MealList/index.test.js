@@ -29,7 +29,10 @@ describe("<MealList/>", () => {
     const rendered = render(<MealList {...defaultProps}/>)
     
     expect(rendered.getByText(/test1/i)).toBeInTheDocument();
+    expect(rendered.getByText(/testSummary1/i)).toBeInTheDocument();
     expect(rendered.getByText(/test2/i)).toBeInTheDocument();
+    expect(rendered.getByText(/testSummary2/i)).toBeInTheDocument();
+    
   })
 
 })
