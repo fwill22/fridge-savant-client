@@ -31,6 +31,7 @@ const LoginForm = ({ handleSignUpClick }) => {
               id="loginEmail" 
               name="email"
               placeholder="Email" 
+              data-testid='loginEmail'
               value={logInDetails.email} 
               onChange={handleChange}
               required />
