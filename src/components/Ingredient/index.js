@@ -5,10 +5,11 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
-const Ingredient = ({ name, deleteIngredient }) => {
+const Ingredient = ({ name, image, deleteIngredient }) => {
   return (
     <div className='ingredient-container'>
       <div className='ingredient-name'>{capitalizeFirstLetter(name)}</div>
+      <img src={image}/>
       <FontAwesomeIcon
         icon={faTrash}
         data-testid='deleteIngredientButton'

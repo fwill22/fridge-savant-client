@@ -11,7 +11,7 @@ const Home = () => {
   const [basket, setBasket] = useState([]);
   const [mealData, setMealData] = useState(null);
   const [mealIds, setMealIds] = useState([]);
-  const [ingredientImage, setIngredientImage] = useState([]);
+  const [ingredientImage, setIngredientImage] = useState("");
 
   useEffect(() => {
     if (basket.length !== 0) {
@@ -33,19 +33,16 @@ const Home = () => {
       return
     } else {
       getIngredientImage(newIngredient)
-      console.log(ingredientImage)
       setBasket(basket.concat({ name: newIngredient,
                                 image: ingredientImage }));
-      console.log(basket)
-      // setIngredientImage([]);
     }
     resetQuery();
-   
+    setIngredientImage("");
   };
 
   const getIngredientImage = (ingredient) => {
     fetch (
-      `https://api.spoonacular.com/food/ingredients/search?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY2}&query=${ingredient}`
+      `https://api.spoonacular.com/food/ingredients/search?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY3}&query=${ingredient}`
     )
     .then((response) => response.json())
     .then((data) =>{
@@ -61,7 +58,7 @@ const Home = () => {
 
   const getMealInfo = (ingredients) => {
     fetch(
-      `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY2}&ranking=2&ingredients=${ingredients}`
+      `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY3}&ranking=2&ingredients=${ingredients}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -76,7 +73,7 @@ const Home = () => {
   const getMealData = (mealIds) => {
     let mealIdString = mealIds.join();
     fetch(
-      `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY2}&ids=${mealIdString}`
+      `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY3}&ids=${mealIdString}`
     )
       .then((response) => response.json())
       .then((data) => {
