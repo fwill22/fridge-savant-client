@@ -3,6 +3,7 @@ import Meal from '../Meal';
 import './index.js';
 
 const MealList = ({ mealData }) => {
+  console.log(mealData)
   return (
     <section class='Recipes'>
       <h1 class='test'>Recipes for you</h1>

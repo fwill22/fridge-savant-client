@@ -1,5 +1,6 @@
 // import React from 'react';
 import './index.css';
+import Share from '../Share'
 
 const Meal = ({ meal }) => {
   return (
@@ -13,6 +14,7 @@ const Meal = ({ meal }) => {
         </div>
         <button>More...</button>
         <button class='bookmark-meal'>B</button>
+        <Share title={meal.title} recipeUrl={meal.sourceUrl}/>
       </div>
     </div>
   );
