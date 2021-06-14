@@ -37,7 +37,7 @@ const Slider = () => {
   return (
     <div className='slideshow'>
       <div
-        className='slideshowSlider'
+        className='slideshowSlider' data-testid = 'slideShowSlider'
         style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
       >
         {colors.map((url, index) => (
@@ -47,7 +47,7 @@ const Slider = () => {
         ))}
       </div>
 
-      <div className='slideshowDots'>
+      <div className='slideshowDots' data-testid = 'slideShowDots'>
         {colors.map((_, idx) => (
           <div
             key={idx}

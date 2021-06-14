@@ -58,14 +58,14 @@ const SignUpForm = ({ handleSignUpClick }) => {
       <div className='closeSignUp'> 
         <span className='closeSignUpLink' onClick={handleSignUpClick}>X</span>
       </div>
-      <h2 className='signUpTitle'>Enter your details</h2>
+      <h2 className='signUpTitle' data-testid='signUpTitle'>Enter your details</h2>
       <form onSubmit={handleSubmitClick}> 
         <input type="email" 
               name='email'
               className="form-input"
               id="signUpEmail" 
               placeholder="Email" 
-              value={signUpDetails.email} 
+              value={signUpDetails.email}
               onChange={handleChange}
               required />
         <input type="text"
@@ -100,7 +100,7 @@ const SignUpForm = ({ handleSignUpClick }) => {
               onChange={handleChange}
               required />
         <br/>
-        <input className='formButton' id='signUpButton' type='submit' value='Sign Up' />
+        <input className='formButton' id='signUpButton' type='submit' data-testid='signUpLink' value='Sign Up' />
       </form>
     </div>
   )
