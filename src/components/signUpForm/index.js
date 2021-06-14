@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import './index.css';
 
-const SignUpForm = ({ handleSignUpClick }) => {
-  const [signUpDetails, setSignUpDetails] = useState({
+const SignUpForm = ({ handleCardFlip }) => {
+  const initialState = {
     email : "",
     name : "",
     username : "",
     password : "",
     confirmPassword : ""
-  })
+  }
+  
+  const [signUpDetails, setSignUpDetails] = useState(initialState)
+
 
   const handleChange = (event) => {
     const {name, value} = event.target
@@ -22,7 +25,9 @@ const SignUpForm = ({ handleSignUpClick }) => {
     event.preventDefault()
     if(signUpDetails.password === signUpDetails.confirmPassword) {
       sendDetailsToServer()
-      handleSignUpClick()
+      // clear fields
+      setSignUpDetails(initialState)
+      handleCardFlip()
     } else {
       console.log("Error: Passwords do not match") 
       // Add in flash message 
@@ -56,7 +61,7 @@ const SignUpForm = ({ handleSignUpClick }) => {
   return (
     <div className='signUpForm'>
       <div className='closeSignUp'> 
-        <span className='closeSignUpLink' onClick={handleSignUpClick}>X</span>
+        <span className='closeSignUpLink' onClick={handleCardFlip}>X</span>
       </div>
       <h2 className='signUpTitle' data-testid='signUpTitle'>Enter your details</h2>
       <form onSubmit={handleSubmitClick}> 

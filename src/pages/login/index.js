@@ -6,7 +6,7 @@ import './index.css';
 const Login = () => {
   const [isRotated, setIsRotated] = React.useState(false);
 
-  const handleSignUpClick = () => setIsRotated((rotated) => !rotated);
+  const handleCardFlip = () => setIsRotated((rotated) => !rotated);
 
   return (
     <div className='login-container'>
@@ -14,10 +14,10 @@ const Login = () => {
       <div className='form-wrapper'>
         <div className={`login-card ${isRotated ? 'rotated' : ''}`}>
           <div className='front'>
-            <LoginForm handleSignUpClick={handleSignUpClick} />
+            <LoginForm handleCardFlip={handleCardFlip} />
           </div>
           <div className='back'>
-            <SignUpForm handleSignUpClick={handleSignUpClick} />
+            <SignUpForm handleCardFlip={handleCardFlip} />
           </div>
         </div>
       </div>

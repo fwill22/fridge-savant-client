@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './index.css';
 
-const LoginForm = ({ handleSignUpClick }) => {
+const LoginForm = ({ handleCardFlip }) => {
   const [logInDetails, setLogInDetails] = useState({
     email : "",
     password : ""
@@ -48,7 +48,7 @@ const LoginForm = ({ handleSignUpClick }) => {
         <input type='submit' className='formButton' id='loginButton' value='Log In' data-testid='loginButton'/>
       </form>
       <p>
-        Don't have an account? <span className='signUpLink' data-testid='signUpLink' onClick={handleSignUpClick}>Sign Up!</span>
+        Don't have an account? <span className='signUpLink' data-testid='signUpLink' onClick={handleCardFlip}>Sign Up!</span>
       </p>
     </div>
   )
