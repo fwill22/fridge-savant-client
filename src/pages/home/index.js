@@ -40,7 +40,7 @@ const Home = () => {
 
   const getMealInfo = (ingredients) => {
     fetch(
-      `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ingredients=${ingredients}`
+      `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ranking=2&ingredients=${ingredients}`
     )
       .then((response) => response.json())
       .then((data) => {
