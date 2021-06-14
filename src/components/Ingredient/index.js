@@ -19,8 +19,12 @@ const Ingredient = ({ name, image, deleteIngredient }) => {
     });
   return (
     <div className='ingredient-container'>
-      <div className='ingredient-name'>{capitalizeFirstLetter(name)}</div>
-      <img src={ingredientImage} alt='img' />
+      <div
+        className='ingredient-name'
+        style={{ backgroundImage: `url(${ingredientImage})` }}
+      >
+        {capitalizeFirstLetter(name)}
+      </div>
       <FontAwesomeIcon
         icon={faTrash}
         data-testid='deleteIngredientButton'
