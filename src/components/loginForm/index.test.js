@@ -6,8 +6,8 @@ let defaultProps;
 describe("<loginForm />", () => {
   beforeEach(() => {
     defaultProps = {
-      handleSubmitClick: jest.fn(),
-      handleSignUpClick: jest.fn(),
+      handleLoginSubmit: jest.fn(),
+      handleCardFlip: jest.fn(),
       handleChange: jest.fn()
     }
   })

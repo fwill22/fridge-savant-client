@@ -21,7 +21,7 @@ const SignUpForm = ({ handleCardFlip }) => {
     }))
   }
 
-  const handleSubmitClick = (event) => {
+  const handleSignUpSubmit = (event) => {
     event.preventDefault()
     if(signUpDetails.password === signUpDetails.confirmPassword) {
       sendDetailsToServer()
@@ -64,7 +64,7 @@ const SignUpForm = ({ handleCardFlip }) => {
         <span className='closeSignUpLink' onClick={handleCardFlip}>X</span>
       </div>
       <h2 className='signUpTitle' data-testid='signUpTitle'>Enter your details</h2>
-      <form onSubmit={handleSubmitClick}> 
+      <form onSubmit={handleSignUpSubmit}> 
         <input type="email" 
               name='email'
               className="form-input"

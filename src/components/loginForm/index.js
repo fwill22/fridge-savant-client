@@ -15,7 +15,7 @@ const LoginForm = ({ handleCardFlip }) => {
     }))
   }
 
-  const handleSubmitClick = (event) => {
+  const handleLoginSubmit = (event) => {
     event.preventDefault()
     //authentication API call
   }
@@ -25,7 +25,7 @@ const LoginForm = ({ handleCardFlip }) => {
   return (
     <div className='loginForm'>
       <h2 className='loginTitle' data-testid='loginTitle'>Login</h2>
-      <form onSubmit={handleSubmitClick}>
+      <form onSubmit={handleLoginSubmit}>
         <input type="email" 
               className="form-input"
               id="loginEmail" 
