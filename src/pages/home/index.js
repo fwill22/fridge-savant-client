@@ -11,15 +11,14 @@ const Home = () => {
   const [basket, setBasket] = useState([]);
   const [mealData, setMealData] = useState(null);
   const [mealIds, setMealIds] = useState([]);
-  const [ingredientImage, setIngredientImage] = useState("");
 
   useEffect(() => {
     if (basket.length !== 0) {
       document.getElementById('reset-basket-button').style.display = 'block';
-      document.querySelector('.search-recipe-button').style.display ='block';
+      document.querySelector('.search-recipe-button').style.display = 'block';
     } else {
       document.getElementById('reset-basket-button').style.display = 'none';
-      document.querySelector('.search-recipe-button').style.display ='none';
+      document.querySelector('.search-recipe-button').style.display = 'none';
     }
   });
 
@@ -29,26 +28,12 @@ const Home = () => {
       .value.toLowerCase();
     if (basket.find((ingredient) => ingredient.name === newIngredient)) {
       // add flash error message
-    } else if (newIngredient === '') {
-      return
-    } else {
-      getIngredientImage(newIngredient)
-      setBasket(basket.concat({ name: newIngredient,
-                                image: ingredientImage }));
+    } else if (newIngredient === '') return;
+    else {
+      setBasket(basket.concat({ name: newIngredient }));
     }
     resetQuery();
-    setIngredientImage("");
   };
-
-  const getIngredientImage = (ingredient) => {
-    fetch (
-      `https://api.spoonacular.com/food/ingredients/search?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY3}&query=${ingredient}`
-    )
-    .then((response) => response.json())
-    .then((data) =>{
-      setIngredientImage(ingredientImage.concat(`https://spoonacular.com/cdn/ingredients_100x100/${data.results[0].image}`))
-    });
-  } ;
 
   const deleteIngredient = (ingredientName) => {
     setBasket(
@@ -58,7 +43,7 @@ const Home = () => {
 
   const getMealInfo = (ingredients) => {
     fetch(
-      `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY3}&ranking=2&ingredients=${ingredients}`
+      `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY5}&ranking=2&ingredients=${ingredients}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -73,7 +58,7 @@ const Home = () => {
   const getMealData = (mealIds) => {
     let mealIdString = mealIds.join();
     fetch(
-      `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY3}&ids=${mealIdString}`
+      `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY5}&ids=${mealIdString}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -147,7 +132,12 @@ const Home = () => {
         <IngredientList basket={basket} deleteIngredient={deleteIngredient} />
       </div>
       <div class='IngredientsOptions'>
-        <button onClick={() => { searchMeals() }} className='search-recipe-button'>
+        <button
+          onClick={() => {
+            searchMeals();
+          }}
+          className='search-recipe-button'
+        >
           find recipes
         </button>
         <button
