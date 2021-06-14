@@ -1,6 +1,8 @@
 // import React from 'react';
 import './index.css';
 import Share from '../Share'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBookmark } from '@fortawesome/free-regular-svg-icons';
 
 const Meal = ({ meal }) => {
   return (
@@ -12,9 +14,9 @@ const Meal = ({ meal }) => {
           <p>Ready in {meal.readyInMinutes} minutes</p>
           <p>{meal.summary}</p>
         </div>
-        <button>More...</button>
-        <button class='bookmark-meal'>B</button>
-        <Share title={meal.title} recipeUrl={meal.sourceUrl}/>
+        <button class='more-info-meal'>More...</button>
+        <button class='bookmark-meal'><FontAwesomeIcon icon={faBookmark} class='bookmark-icon' /></button>
+        <Share class='email-share-btn' title={meal.title} recipeUrl={meal.sourceUrl}/>
       </div>
     </div>
   );
