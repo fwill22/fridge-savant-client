@@ -16,5 +16,6 @@ describe("<Meal/>", () => {
     expect(rendered.getByText(mockMeal.title)).toBeTruthy()
     // expect(rendered.getByText(mockMeal.title)).toHaveAttribute("href", mockMeal.sourceUrl)
     expect(rendered.getByText(`Ready in ${mockMeal.readyInMinutes} minutes`)).toBeTruthy()
+    // expect(rendered.)
   })
 })
