@@ -6,6 +6,7 @@ import Slider from '../../components/Slider';
 import WelcomeText from '../../components/WelcomeText';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCarrot } from '@fortawesome/free-solid-svg-icons';
+import Message from '../../components/Message';
 
 const Home = () => {
   const [basket, setBasket] = useState([]);
@@ -98,6 +99,7 @@ const Home = () => {
     <div class='Container'>
       <div class='Header'>
         <Header />
+        <Message />
       </div>
       <div class='WelcomeText'>
         <WelcomeText />
