@@ -1,41 +1,66 @@
-
-
-
 .Container {
   display: grid;
   grid-template-columns: 1fr 1.2fr 0.8fr;
-  grid-template-rows: 0.5fr 0.3fr 1.1fr 2.9fr 0.2fr;
-  grid-auto-rows: 1fr;
+  grid-template-rows: 0.1fr 0.1fr 0.1fr 0.1fr 2.1fr 0.2fr;
   gap: 10px 10px;
   grid-auto-flow: row;
   grid-template-areas:
     'Header Header Header'
-    'Search-Box Search-Box Search-Box'
-    'Ingredients Ingredients Ingredients'
+    'WelcomeText Slider Slider'
+    'SearchBox SearchBox SearchBox'
+    'Ingredients Ingredients IngredientsOptions'
     'Recipes Recipes User'
     'Footer Footer Footer';
   width: 100vw;
-  height: 100vh;
+
+  background-color: #f2f5f7;
 }
 
 .Header {
   grid-area: Header;
-  background-color: red;
 }
 
-.Search-Box {
-  grid-area: Search-Box;
-  background-color: blue;
+.WelcomeText {
+  grid-area: WelcomeText;
+  padding-left: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Slider {
+  grid-area: Slider;
+  padding-top: 20px;
+}
+
+.SearchBox {
+  grid-area: SearchBox;
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .Ingredients {
   grid-area: Ingredients;
-  background-color: purple;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+  overflow-x: scroll;
+  min-height: 300px;
+}
+
+.IngredientsOptions {
+  grid-area: IngredientsOptions;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 20px;
 }
 
 .Recipes {
   grid-area: Recipes;
-  background-color: pink;
+  padding: 10px 10px 10px 40px;
 }
 
 .User {
@@ -46,4 +71,144 @@
 .Footer {
   grid-area: Footer;
   background-color: yellow;
+}
+
+/* Add Ingredients */
+
+:root {
+  --sw: 400px;
+  --sh: 80px;
+  --fs: 1.1em;
+  --i1: 24px;
+  --i2: 18px;
+  --t: 14px;
+  --l: 10px;
+  --mt: 8px;
+}
+@media only screen and (max-width: 420px) {
+  :root {
+    --sw: 320px;
+    --fs: 0.9em;
+    --sh: 80px;
+    --i1: 20px;
+    --i2: 14px;
+    --t: 12px;
+    --l: 12px;
+    --mt: 3px;
+  }
+}
+.form-container,
+.form-container .form-tab,
+.form-tab .add-ingredient-btn,
+.resoult-tab,
+.ul-title,
+.ul .li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-container {
+  width: var(--sw);
+  height: var(--sh);
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 6px 30px -10px #c4c4c4;
+  margin-bottom: 10px;
+  width: 700px;
+}
+.form-container .form-tab {
+  width: 95%;
+  height: calc(var(--sh) - 20px);
+}
+.form-tab .search-field {
+  width: 75%;
+  height: calc(var(--sh) - 20px);
+  background: transparent;
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff5f7;
+}
+.form-tab .search-field .search-icon {
+  position: absolute;
+  top: var(--t);
+  left: var(--l);
+  z-index: 1;
+  color: #d099a0;
+  opacity: 0.8;
+  width: var(--i1);
+  height: var(--i1);
+}
+.form-tab .search-field .search-placeholder {
+  position: absolute;
+  top: 0;
+  left: 42px;
+  z-index: 1;
+  opacity: 0.8;
+  font-size: calc(var(--fs) / 1.1);
+}
+.form-tab .search-field form {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 3;
+}
+.form-tab .search-field form .ingredient-input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  font-size: var(--fs);
+  color: #3f3f3f;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  padding: 5px 5px 5px 43px;
+  caret-color: #d099a0;
+  line-height: 2em;
+}
+.form-tab .add-ingredient-btn {
+  box-sizing: border-box;
+  text-transform: uppercase;
+  font-size: calc(var(--fs) / 1.2);
+  width: 25%;
+  height: 40px;
+  background: transparent;
+  margin-top: 2px;
+}
+.form-tab .add-ingredient-btn p {
+  cursor: pointer;
+  font-size: 17px;
+  color: #3f3f3f;
+  text-align: center;
+}
+
+.add-ingredient-btn p:hover {
+  color: #d099a0;
+}
+
+/* Ingredient options */
+
+.search-recipe-button,
+.reset-basket-button {
+  text-transform: uppercase;
+  height: 70px;
+  width: 200px;
+  margin: 10px;
+  background-color: white;
+  border: solid 0.1em rgb(199, 199, 199);
+  font-size: 15px;
+  color: #636262;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.search-recipe-button:hover,
+.reset-basket-button:hover {
+  background-color: #f0929d;
+  border: none;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
 }

@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import '../App.css';
-import MealList from '../components/MealList';
-import IngredientList from '../components/IngredientList';
+import MealList from '../../components/MealList';
+import IngredientList from '../../components/IngredientList';
+import Header from '../../components/Header';
+import Slider from '../../components/Slider';
+import WelcomeText from '../../components/WelcomeText';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCarrot } from '@fortawesome/free-solid-svg-icons';
 
 const Home = () => {
   const [basket, setBasket] = useState([]);
@@ -18,7 +22,7 @@ const Home = () => {
 
   const addIngredient = () => {
     const newIngredient = document
-      .querySelector('#ingredient-input')
+      .querySelector('.ingredient-input')
       .value.toLowerCase();
     if (basket.find((ingredient) => ingredient.name === newIngredient)) {
       // add flash error message
@@ -61,7 +65,7 @@ const Home = () => {
   };
 
   const resetQuery = () => {
-    document.querySelector('#ingredient-input').value = '';
+    document.querySelector('.ingredient-input').value = '';
   };
 
   const resetBasket = () => {
@@ -92,19 +96,54 @@ const Home = () => {
 
   return (
     <div class='Container'>
-      <div class='Header'>Header</div>
-      <div class='Search-Box'>
-        <input type='text' id='ingredient-input'></input>
-        <button onClick={addIngredient}>Add ingredient</button>
-        <button onClick={() => { searchMeals() }} className='search-button' >
-          Give me food
-        </button>
-        <button id='reset-basket-button' onClick={clearAll}>
-          Clear Ingredients
-        </button>
+      <div class='Header'>
+        <Header />
       </div>
+      <div class='WelcomeText'>
+        <WelcomeText />
+      </div>
+      <div class='Slider'>
+        <Slider />
+      </div>
+      <div class='SearchBox'>
+        <div class='form-container'>
+          <div class='form-tab'>
+            <div class='search-field'>
+              <FontAwesomeIcon icon={faCarrot} class='search-icon' />
+              <form>
+                <input
+                  type='text'
+                  class='ingredient-input'
+                  placeholder="What's in your fridge?"
+                />
+              </form>
+            </div>
+            <div class='add-ingredient-btn' onClick={addIngredient}>
+              <p>add ingredient</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class='Ingredients'>
         <IngredientList basket={basket} deleteIngredient={deleteIngredient} />
+      </div>
+      <div class='IngredientsOptions'>
+        <button
+          onClick={() => {
+            searchMeals();
+          }}
+          className='search-recipe-button'
+        >
+          find recipes
+        </button>
+        <button
+          id='reset-basket-button'
+          onClick={clearAll}
+          className='reset-basket-button'
+        >
+          clear ingredients
+        </button>
       </div>
       <div class='Recipes'>{mealData && <MealList mealData={mealData} />}</div>
       <div class='User'>User</div>
