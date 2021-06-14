@@ -15,8 +15,10 @@ const Home = () => {
   useEffect(() => {
     if (basket.length !== 0) {
       document.getElementById('reset-basket-button').style.display = 'block';
+      document.querySelector('.search-recipe-button').style.display ='block';
     } else {
       document.getElementById('reset-basket-button').style.display = 'none';
+      document.querySelector('.search-recipe-button').style.display ='none';
     }
   });
 
@@ -26,6 +28,8 @@ const Home = () => {
       .value.toLowerCase();
     if (basket.find((ingredient) => ingredient.name === newIngredient)) {
       // add flash error message
+    } else if (newIngredient === '') {
+      return
     } else {
       setBasket(basket.concat({ name: newIngredient }));
     }
@@ -129,12 +133,7 @@ const Home = () => {
         <IngredientList basket={basket} deleteIngredient={deleteIngredient} />
       </div>
       <div class='IngredientsOptions'>
-        <button
-          onClick={() => {
-            searchMeals();
-          }}
-          className='search-recipe-button'
-        >
+        <button onClick={() => { searchMeals() }} className='search-recipe-button'>
           find recipes
         </button>
         <button
