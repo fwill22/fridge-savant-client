@@ -45,7 +45,7 @@ const Home = () => {
 
   const getMealInfo = (ingredients) => {
     axios.get(
-      `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY5}&ranking=2&ingredients=${ingredients}`
+      `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ranking=2&ingredients=${ingredients}`
     )
       .then((response) => {
         setMealIds(mealIds.push(formatMealIds(response)));
@@ -59,7 +59,7 @@ const Home = () => {
   const getMealData = (mealIds) => {
     let mealIdString = mealIds.join();
     axios.get (
-      `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY5}&ids=${mealIdString}`
+      `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ids=${mealIdString}`
     )
       .then((response) => {
         setMealData(response.data);
