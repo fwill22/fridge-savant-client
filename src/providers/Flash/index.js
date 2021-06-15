@@ -1,7 +1,7 @@
-import React, { createContext, useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import FlashMessage from '../../components/FlashMessage'
 
-const FlashContext = React.createContext(null);
+export const FlashContext = React.createContext(null);
 
 const FlashProvider = ({ children }) => {
   const [flashMessage, setFlashMessage] = useState(null);
@@ -13,9 +13,8 @@ const FlashProvider = ({ children }) => {
     }, 10000);
   };
 
-  console.log('in prov', createFlashMessage)
   return (
-    <FlashContext.Provider value={ 'hello' }>
+    <FlashContext.Provider value={{ createFlashMessage }}>
       {flashMessage && (
         <FlashMessage type={flashMessage.type} message={flashMessage.message} setFlashMessage={setFlashMessage}/>
       )}

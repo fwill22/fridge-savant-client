@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import FlashContext from '../../providers/Flash';
+import { FlashContext } from '../../providers/Flash';
 import './index.css';
 
 const SignUpForm = ({ handleCardFlip }) => {
@@ -12,9 +12,9 @@ const SignUpForm = ({ handleCardFlip }) => {
   }
   
   const [signUpDetails, setSignUpDetails] = useState(initialState)
-  console.log(FlashContext)
-  const createFlashMessage = useContext(FlashContext);
-  console.log('create', createFlashMessage)
+  
+  let {createFlashMessage} = useContext(FlashContext);
+
   const handleChange = (event) => {
     const {name, value} = event.target
     setSignUpDetails(prevState => ({
@@ -22,7 +22,7 @@ const SignUpForm = ({ handleCardFlip }) => {
       [name] : value
     }))
   }
-
+  
   const handleSignUpSubmit = (event) => {
     event.preventDefault()
     if(signUpDetails.password === signUpDetails.confirmPassword) {
@@ -119,6 +119,5 @@ const SignUpForm = ({ handleCardFlip }) => {
   )
 }
 
-//close button to delete this component
 
 export default SignUpForm
