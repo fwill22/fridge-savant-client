@@ -9,4 +9,4 @@ const FlashMessage = ({type, message, setFlashMessage }) => {
   )
 }
 
-export default FlashMessage
+export default FlashMessage;

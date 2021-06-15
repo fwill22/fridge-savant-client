@@ -53,7 +53,8 @@ const SignUpForm = ({ handleCardFlip }) => {
           body: JSON.stringify(userDetails)
         })
         // 2XX or 3XX 
-        const res = await response.json()
+        // const res = await response.json()
+        const res = {name: "Finn"}
         createFlashMessage({
           type: "success",
           message: `Account created. Welcome ${res.name}`,
