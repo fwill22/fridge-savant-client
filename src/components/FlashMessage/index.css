@@ -30,6 +30,15 @@
   animation-duration: 2s;
 }
 
+@keyframes slideout {
+  from {
+    right: 10px;
+  }
+  to {
+    right: -300px;
+  }
+}
+
 .flash-header-success {
   background-color: green;
 }
