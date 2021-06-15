@@ -4,8 +4,9 @@ import './index.js';
 
 const MealList = ({ mealData }) => {
   return (
-    <section class='Recipes'>
-      <h1 class='test'>Recipes for you</h1>
+
+    <section className='Recipes'>
+      <h1>Recipes for you</h1>
       {mealData.map((meal) => {
         return <Meal key={meal.id} meal={meal} />;
       })}
