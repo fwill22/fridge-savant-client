@@ -12,9 +12,9 @@ const SignUpForm = ({ handleCardFlip }) => {
   }
   
   const [signUpDetails, setSignUpDetails] = useState(initialState)
-
-  const { createFlashMessage } = useContext(FlashContext);
-
+  console.log(FlashContext)
+  const createFlashMessage = useContext(FlashContext);
+  console.log('create', createFlashMessage)
   const handleChange = (event) => {
     const {name, value} = event.target
     setSignUpDetails(prevState => ({
