@@ -6,6 +6,8 @@ import Slider from '../../components/Slider';
 import WelcomeText from '../../components/WelcomeText';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCarrot } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
+
 
 const Home = () => {
   const [basket, setBasket] = useState([]);
@@ -42,12 +44,11 @@ const Home = () => {
   };
 
   const getMealInfo = (ingredients) => {
-    fetch(
-      `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY2}&ranking=2&ingredients=${ingredients}`
+    axios.get(
+      `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY4}&ranking=2&ingredients=${ingredients}`
     )
-      .then((response) => response.json())
-      .then((data) => {
-        setMealIds(mealIds.push(formatMealIds(data)));
+      .then((response) => {
+        setMealIds(mealIds.push(formatMealIds(response)));
         getMealData(mealIds);
       })
       .catch(() => {
@@ -57,12 +58,11 @@ const Home = () => {
 
   const getMealData = (mealIds) => {
     let mealIdString = mealIds.join();
-    fetch(
-      `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY2}&ids=${mealIdString}`
+    axios.get (
+      `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY4}&ids=${mealIdString}`
     )
-      .then((response) => response.json())
-      .then((data) => {
-        setMealData(data);
+      .then((response) => {
+        setMealData(response.data);
         resetMealIds();
       });
   };
@@ -80,8 +80,8 @@ const Home = () => {
     getMealInfo(ingredientNames.join(',+'));
   };
 
-  const formatMealIds = (data) => {
-    return data.map((data) => data.id).join(',');
+  const formatMealIds = (response) => {
+    return response.data.map((data) => data.id).join(',');
   };
 
   const resetMealIds = () => {
