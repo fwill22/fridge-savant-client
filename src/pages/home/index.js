@@ -15,8 +15,10 @@ const Home = () => {
   useEffect(() => {
     if (basket.length !== 0) {
       document.getElementById('reset-basket-button').style.display = 'block';
+      document.querySelector('.search-recipe-button').style.display = 'block';
     } else {
       document.getElementById('reset-basket-button').style.display = 'none';
+      document.querySelector('.search-recipe-button').style.display = 'none';
     }
   });
 
@@ -26,7 +28,8 @@ const Home = () => {
       .value.toLowerCase();
     if (basket.find((ingredient) => ingredient.name === newIngredient)) {
       // add flash error message
-    } else {
+    } else if (newIngredient === '') return;
+    else {
       setBasket(basket.concat({ name: newIngredient }));
     }
     resetQuery();
@@ -40,7 +43,7 @@ const Home = () => {
 
   const getMealInfo = (ingredients) => {
     fetch(
-      `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ingredients=${ingredients}`
+      `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY5}&ranking=2&ingredients=${ingredients}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -55,7 +58,7 @@ const Home = () => {
   const getMealData = (mealIds) => {
     let mealIdString = mealIds.join();
     fetch(
-      `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ids=${mealIdString}`
+      `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY5}&ids=${mealIdString}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -95,7 +98,7 @@ const Home = () => {
   };
 
   return (
-    <div class='Container'>
+    <div class='Home'>
       <div class='Header'>
         <Header />
       </div>

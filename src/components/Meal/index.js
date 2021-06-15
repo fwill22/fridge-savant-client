@@ -6,10 +6,11 @@ import { faBookmark } from '@fortawesome/free-regular-svg-icons';
 
 const Meal = ({ meal }) => {
   return (
-    <div className='card'>
+
+    <div className='meal-card'>
       <img src={meal.image} alt="your meal" />
-      <div className='card-body'>
-        <div className='card-text'>
+      <div className='meal-card-body'>
+        <div className='meal-card-text'>
           <h3>{meal.title}</h3>
           <p>Ready in {meal.readyInMinutes} minutes</p>
           <p>{meal.summary}</p>

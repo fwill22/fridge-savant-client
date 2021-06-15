@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
-.container {
+/* .container {
   font-family: 'Lato', sans-serif;
   width: 100%;
   margin: auto;
@@ -8,8 +8,8 @@
   flex-flow: row wrap;
   align-content: flex-start;
   padding: 0.9em;
-}
-.card {
+} */
+.meal-card {
   border-radius: 0.1rem;
   margin: 0 0 0.9em;
   height: 15em;
@@ -20,10 +20,10 @@
   box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.1);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
-.card:hover {
+.meal-card:hover {
   box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
 }
-.card img {
+.meal-card img {
   margin-left: 0.9em;
   border-radius: 0.5rem;
   height: 100%;
@@ -31,7 +31,7 @@
   object-fit: contain;
   flex: 1 1 auto;
 }
-.card-body {
+.meal-card-body {
   width: 12em;
   max-height: 100%;
   flex: 1 1 auto;
@@ -41,7 +41,8 @@
   padding: 1.8em;
   position: relative;
 }
-.card-body button {
+
+.meal-card-body button {
   flex: none;
   align-self: flex-start;
   margin-top: auto;
@@ -50,10 +51,10 @@
   color: #404646;
   background: none;
 }
-.card-body button:hover {
+.meal-card-body button:hover {
   border-color: #d099a0;
 }
-.card-text {
+.meal-card-text {
   position: relative;
   flex: 1;
   overflow: hidden;
@@ -61,15 +62,15 @@
   margin: 0 0 0.8em 0;
   padding: 0;
 }
-.card-text h3,
-.card-text p {
+.meal-card-text h3,
+.meal-card-text p {
   margin-top: 0;
 }
-.card p {
+.meal-card p {
   opacity: 0.7;
 }
 
-.card-text:after {
+.meal-card-text:after {
   position: absolute;
   bottom: 0;
   content: '';
@@ -85,15 +86,15 @@ a:hover {
   text-decoration: underline;
 }
 @media (max-width: 1100px) {
-  .card {
+  .meal-card {
     margin: 0.7826086957em;
   }
-  .card img {
+  .meal-card img {
     max-width: 18em;
   }
 }
 @media (max-width: 870px) {
-  .card {
+  .meal-card {
     max-width: 100%;
   }
 }
@@ -102,7 +103,7 @@ a:hover {
     flex-flow: column nowrap;
     padding: 0;
   }
-  .card {
+  .meal-card {
     margin: 0.75em 1.1em;
     height: 15em;
     flex: 1 1 auto;
@@ -110,7 +111,7 @@ a:hover {
     background-color: #fff;
     box-shadow: 0 2px 25px 2px rgba(0, 0, 0, 1), 0 2px 50px 2px rgba(0, 0, 0, 1);
   }
-  .card img {
+  .meal-card img {
     max-width: 45%;
   }
 }
