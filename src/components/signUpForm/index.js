@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import FlashContext from '../../providers/Flash';
 import './index.css';
 
 const SignUpForm = ({ handleCardFlip }) => {
@@ -12,6 +13,7 @@ const SignUpForm = ({ handleCardFlip }) => {
   
   const [signUpDetails, setSignUpDetails] = useState(initialState)
 
+  const { createFlashMessage } = useContext(FlashContext);
 
   const handleChange = (event) => {
     const {name, value} = event.target
@@ -25,7 +27,6 @@ const SignUpForm = ({ handleCardFlip }) => {
     event.preventDefault()
     if(signUpDetails.password === signUpDetails.confirmPassword) {
       sendDetailsToServer()
-      // clear fields
       setSignUpDetails(initialState)
       handleCardFlip()
     } else {
@@ -43,18 +44,24 @@ const SignUpForm = ({ handleCardFlip }) => {
         "username":signUpDetails.username,
         "password":signUpDetails.password
       }
-      const response = await fetch('http://localhost:5000/api/users', {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-          'Content-Type': 'application/json' 
-        },
-        body: JSON.stringify(userDetails)
-      }).catch((error) => {
-        // Server response error message
-        console.log(error)
-      })
-      return response.json()
+      try {
+        const response = await fetch('http://localhost:5000/api/users', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json' 
+          },
+          body: JSON.stringify(userDetails)
+        })
+        // 2XX or 3XX 
+        const res = await response.json()
+        createFlashMessage({
+          type: "success",
+          message: `Account created. Welcome ${res.name}`,
+        })
+      } catch (e) {
+        // 4XX or 5XX response from server (e)
+        createFlashMessage({ type: "error", message: `Error: ${e.message}`})
+      }
     }
   }  
 
