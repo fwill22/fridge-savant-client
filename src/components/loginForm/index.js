@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './index.css';
 
-const LoginForm = ({ handleSignUpClick }) => {
+const LoginForm = ({ handleCardFlip }) => {
   const [logInDetails, setLogInDetails] = useState({
     email : "",
     password : ""
@@ -15,7 +15,7 @@ const LoginForm = ({ handleSignUpClick }) => {
     }))
   }
 
-  const handleSubmitClick = (event) => {
+  const handleLoginSubmit = (event) => {
     event.preventDefault()
     //authentication API call
   }
@@ -25,7 +25,7 @@ const LoginForm = ({ handleSignUpClick }) => {
   return (
     <div className='loginForm'>
       <h2 className='loginTitle' data-testid='loginTitle'>Login</h2>
-      <form onSubmit={handleSubmitClick}>
+      <form onSubmit={handleLoginSubmit}>
         <input type="email" 
               className="form-input"
               id="loginEmail" 
@@ -48,7 +48,7 @@ const LoginForm = ({ handleSignUpClick }) => {
         <input type='submit' className='formButton' id='loginButton' value='Log In' data-testid='loginButton'/>
       </form>
       <p>
-        Don't have an account? <span className='signUpLink' data-testid='signUpLink' onClick={handleSignUpClick}>Sign Up!</span>
+        Don't have an account? <span className='signUpLink' data-testid='signUpLink' onClick={handleCardFlip}>Sign Up!</span>
       </p>
     </div>
   )
