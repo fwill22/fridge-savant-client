@@ -18,6 +18,7 @@ const LoginForm = ({ handleCardFlip }) => {
   const handleLoginSubmit = (event) => {
     event.preventDefault()
     //authentication API call
+    //success + failure flash message for logging in
   }
 
   

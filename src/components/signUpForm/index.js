@@ -30,8 +30,10 @@ const SignUpForm = ({ handleCardFlip }) => {
       setSignUpDetails(initialState)
       handleCardFlip()
     } else {
-      console.log("Error: Passwords do not match") 
-      // Add in flash message 
+      createFlashMessage({
+        type: "error",
+        message: "Error: Passwords do not match",
+      })
     }
   }
 
@@ -44,6 +46,7 @@ const SignUpForm = ({ handleCardFlip }) => {
         "username":signUpDetails.username,
         "password":signUpDetails.password
       }
+
       try {
         const response = await fetch('http://localhost:5000/api/users', {
           method: 'POST',
@@ -52,15 +55,13 @@ const SignUpForm = ({ handleCardFlip }) => {
           },
           body: JSON.stringify(userDetails)
         })
-        // 2XX or 3XX 
-        // const res = await response.json()
-        const res = {name: "Finn"}
+        const res = await response.json()
+  
         createFlashMessage({
           type: "success",
           message: `Account created. Welcome ${res.name}`,
         })
       } catch (e) {
-        // 4XX or 5XX response from server (e)
         createFlashMessage({ type: "error", message: `Error: ${e.message}`})
       }
     }
