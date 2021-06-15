@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { FlashContext } from '../../providers/Flash';
 import './index.css';
 
@@ -13,7 +13,7 @@ const SignUpForm = ({ handleCardFlip }) => {
   
   const [signUpDetails, setSignUpDetails] = useState(initialState)
   
-  let {createFlashMessage} = useContext(FlashContext);
+  const {createFlashMessage} = useContext(FlashContext);
 
   const handleChange = (event) => {
     const {name, value} = event.target
