@@ -43,6 +43,7 @@ Create and configure `.env` to add your API key
 (config instructions)
 ```
 `Server Side`
+The server side for this project can be found in a separate repo [here](https://github.com/mikejeuga/fridge-savant-server)
 ```
 (instructions)
 ```
