@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './index.css';
 import EmailShare from '../EmailShare'
 import FacebookShare from '../FacebookShare';
@@ -8,7 +8,13 @@ import { faBookmark } from '@fortawesome/free-regular-svg-icons';
 import { capitalizeFirstLetter } from "../../lib/string-utils";
 
 const Meal = ({ meal }) => {
-  console.log(meal.extendedIngredients)  
+
+  const [bookmarkColour, setBookmarkColour] = useState('');
+
+  const changeColour = () => {
+    bookmarkColour === '' ? setBookmarkColour("-goldbutton") : setBookmarkColour('')
+  }
+  
   return (
     <div className='meal-card'>
       <img src={meal.image} alt="your meal" />
@@ -27,10 +33,10 @@ const Meal = ({ meal }) => {
           onClick={ (e) => {
           e.preventDefault();
           window.location.href=`${meal.sourceUrl}` } }>View this recipe...</button>
-        <button className='bookmark-meal'><FontAwesomeIcon icon={faBookmark} className='bookmark-icon' /></button>
         <EmailShare className='email-share-btn' title={meal.title} recipeUrl={meal.sourceUrl}/>
         <FacebookShare className='facebook-share-btn' recipeUrl={meal.sourceUrl}/>
         <WhatsappShare className='whatsapp-share-btn' recipeUrl={meal.sourceUrl}/>
+        <FontAwesomeIcon icon={faBookmark} size='2x' color='' className={`bookmark-icon${bookmarkColour}`} onClick={changeColour}/>
       </div>
     </div>
   );
