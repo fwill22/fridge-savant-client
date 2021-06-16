@@ -1,5 +1,5 @@
 import axios from "axios";
-import AuthConstants from "../constants";
+import StoreConstants from "../constants";
 import { setAuthToken, getAuthToken } from "../../token";
 
 export const signIn = async ({ email, password }) => {
@@ -13,12 +13,12 @@ export const signIn = async ({ email, password }) => {
     }
   );
 
-  // Set the auth token
+  // Set the store token
   setAuthToken(response.data.token);
 
   // Create an action
   return {
-    type: AuthConstants.SIGN_IN,
+    type: StoreConstants.SIGN_IN,
     payload: { user: response.data },
   };
 };
@@ -26,13 +26,33 @@ export const signIn = async ({ email, password }) => {
 export const getUser = async () => {
   const response = await axios.get("http://localhost:5000/api/users", {
     headers: {
-      Authorization: `Bearer ${getAuthToken()}`,
+      Storeorization: `Bearer ${getAuthToken()}`,
     },
   });
 
   // Create an action
   return {
-    type: AuthConstants.GET_USER,
+    type: StoreConstants.GET_USER,
     payload: { user: response.data },
+  };
+};
+
+export const addIngredient = (ingredient) => {
+  return {
+    type: StoreConstants.ADD_TO_BASKET,
+    payload: { ingredient },
+  };
+};
+
+export const removeIngredient = (ingredient) => {
+  return {
+    type: StoreConstants.REMOVE_FROM_BASKET,
+    payload: { ingredient },
+  };
+};
+
+export const clearIngredients = (ingredient) => {
+  return {
+    type: StoreConstants.CLEAR_BASKET,
   };
 };
