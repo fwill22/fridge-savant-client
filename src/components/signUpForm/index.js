@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { FlashContext } from '../../providers/Flash';
 import './index.css';
 
 const SignUpForm = ({ handleCardFlip }) => {
@@ -11,7 +12,8 @@ const SignUpForm = ({ handleCardFlip }) => {
   }
   
   const [signUpDetails, setSignUpDetails] = useState(initialState)
-
+  
+  const {createFlashMessage} = useContext(FlashContext);
 
   const handleChange = (event) => {
     const {name, value} = event.target
@@ -20,17 +22,18 @@ const SignUpForm = ({ handleCardFlip }) => {
       [name] : value
     }))
   }
-
+  
   const handleSignUpSubmit = (event) => {
     event.preventDefault()
     if(signUpDetails.password === signUpDetails.confirmPassword) {
       sendDetailsToServer()
-      // clear fields
       setSignUpDetails(initialState)
       handleCardFlip()
     } else {
-      console.log("Error: Passwords do not match") 
-      // Add in flash message 
+      createFlashMessage({
+        type: "error",
+        message: "Error: Passwords do not match",
+      })
     }
   }
 
@@ -43,18 +46,24 @@ const SignUpForm = ({ handleCardFlip }) => {
         "username":signUpDetails.username,
         "password":signUpDetails.password
       }
-      const response = await fetch('http://localhost:5000/api/users', {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-          'Content-Type': 'application/json' 
-        },
-        body: JSON.stringify(userDetails)
-      }).catch((error) => {
-        // Server response error message
-        console.log(error)
-      })
-      return response.json()
+
+      try {
+        const response = await fetch('http://localhost:5000/api/users', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json' 
+          },
+          body: JSON.stringify(userDetails)
+        })
+        const res = await response.json()
+  
+        createFlashMessage({
+          type: "success",
+          message: `Account created. Welcome ${res.name}`,
+        })
+      } catch (e) {
+        createFlashMessage({ type: "error", message: `Error: ${e.message}`})
+      }
     }
   }  
 
@@ -111,6 +120,5 @@ const SignUpForm = ({ handleCardFlip }) => {
   )
 }
 
-//close button to delete this component
 
 export default SignUpForm

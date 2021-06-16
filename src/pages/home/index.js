@@ -97,6 +97,8 @@ const Home = () => {
     resetMeals();
   };
 
+  //flash message for creating bookmarks / you have already bookmarked this + log out 
+
   return (
     <div class='Home'>
       <div class='Header'>

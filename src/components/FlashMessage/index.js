@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './index.css';
 
 const FlashMessage = ({type, message, setFlashMessage }) => {
+
   return (
     <div className="flash-message" onClick={() => setFlashMessage(null)}>
-      <p className={type}>{message}</p>
+      <div className={`flash-header-${type}`} />
+      <div className="flash-content">
+      <p>{message}</p>
+      </div>
     </div>
   )
 }
 
-export default FlashMessage
+export default FlashMessage;
