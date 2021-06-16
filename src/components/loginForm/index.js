@@ -1,6 +1,7 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { StoreContext } from "../../providers/store";
 import "./index.css";
+import { FlashContext } from '../../providers/Flash';
 
 const LoginForm = ({ handleCardFlip }) => {
   const [state, actions] = useContext(StoreContext);
@@ -8,6 +9,7 @@ const LoginForm = ({ handleCardFlip }) => {
     email: "",
     password: "",
   });
+  const {createFlashMessage} = useContext(FlashContext);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -22,6 +24,16 @@ const LoginForm = ({ handleCardFlip }) => {
     await actions.signIn(logInDetails);
     console.log('in comp', state)
   };
+
+  useEffect(() => {
+    if(state.error){
+      createFlashMessage({
+        type: 'error',
+        message: 'Invalid username or password.'
+      })
+      actions.clearErrors()
+    }
+  }, [state.error])
 
   return (
     <div className="loginForm">

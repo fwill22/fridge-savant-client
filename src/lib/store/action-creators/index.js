@@ -25,9 +25,13 @@ export const signIn = async ({ email, password }) => {
     }
   } catch (error) {
     console.log('in catch', error)
+    console.log('in catch response', error.response)
     return {
       type: StoreConstants.STORE_ERROR,
-      payload: {message: error.message}
+      payload: {
+        status: error.response.status,
+        message: error.response.data
+      }
     }
   }
 };
@@ -60,8 +64,14 @@ export const removeIngredient = (ingredient) => {
   };
 };
 
-export const clearIngredients = (ingredient) => {
+export const clearIngredients = () => {
   return {
     type: StoreConstants.CLEAR_BASKET,
   };
 };
+
+export const clearErrors = () => {
+  return {
+    type: StoreConstants.CLEAR_ERRORS,
+  }
+}

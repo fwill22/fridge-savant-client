@@ -24,12 +24,17 @@ const storeReducer = (previousState, action) => {
         user: action.payload.user,
       };
     case StoreConstants.STORE_ERROR:
-      console.log('in store error', action.payload)
+      console.log('in reducer error', action.payload)
       return {
         ...previousState,
         loading: false,
-        error: action.payload.message,
+        error: true,
       };
+    case StoreConstants.CLEAR_ERRORS:
+      return {
+        ...previousState,
+        error: null,
+      }
     case StoreConstants.ADD_TO_BASKET:
       return {
         ...previousState,
