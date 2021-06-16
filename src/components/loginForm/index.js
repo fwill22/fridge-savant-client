@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { StoreContext } from "../../providers/store";
 import "./index.css";
 import { FlashContext } from '../../providers/Flash';
+import  { useHistory } from 'react-router-dom'
 
 const LoginForm = ({ handleCardFlip }) => {
   const [state, actions] = useContext(StoreContext);
@@ -10,6 +11,7 @@ const LoginForm = ({ handleCardFlip }) => {
     password: "",
   });
   const {createFlashMessage} = useContext(FlashContext);
+  const history = useHistory()
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -33,6 +35,7 @@ const LoginForm = ({ handleCardFlip }) => {
         type: 'success',
         message: 'Successfully logged in.' //`Successfully logged in. Welcome ${state.user.name}!` - would like but state not updating in time
       })
+      history.push('/')
     }
   };
 
