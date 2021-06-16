@@ -14,14 +14,13 @@ const Ingredient = ({ name, deleteIngredient }) => {
       `https://api.spoonacular.com/food/ingredients/search?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&query=${name}`
     )
     .then((response) => {
+      // to be removed
       console.log(response.data.results[0])
       setIngredientImage(
         `https://spoonacular.com/cdn/ingredients_100x100/${response.data.results[0].image}`
       );
     });
   }, []); 
-
- 
 
   return (
     <div className='ingredient-container'>
