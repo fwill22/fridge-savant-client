@@ -129,7 +129,15 @@ const Home = () => {
         )}
       </div>
       <div class="Recipes">{mealData && <MealList mealData={mealData} />}</div>
-      <div class="User">User</div>
+      <div class="Adverts"> 
+        <img src='https://penji.co/wp-content/uploads/2019/03/wagamama-Food-Ad-Designs.jpg' style= {{maxWidth:'100%'}}></img>
+        <img src='https://penji.co/wp-content/uploads/2019/03/demorfi-Food-Ad-Designs.jpg' style= {{maxWidth:'100%'}}></img>
+        <img src='https://penji.co/wp-content/uploads/2019/03/CurtisTea-Food-Ad-Designs.jpg' style= {{maxWidth:'100%'}}></img>
+        <br></br>
+        <h2>
+          Want to advertise here? Contact us to find out more
+        </h2>
+      </div>
       <div class="Footer">Footer</div>
     </div>
   );
