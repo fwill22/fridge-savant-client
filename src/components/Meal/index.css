@@ -147,3 +147,14 @@ a:hover {
   transform: scale(1.3);
   transition: 0.5s;
 }
+
+.facebookShareButton {
+  position: absolute;
+  right: 30%;
+  top: 75%;
+}
+
+.facebookShareButton:hover {
+  transform: scale(1.3);
+  transition: 0.5s;
+}
