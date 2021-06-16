@@ -6,6 +6,6 @@ describe('<WelcomeText/>', () => {
   it('should display the welcome text', () => {
     const rendered = render(<WelcomeText />)
 
-    expect(rendered.getByText('There is nothing as creative as cooking.')).toBeTruthy()
+    expect(rendered.getByText('Make the best with what you\'ve got.')).toBeTruthy()
   })
 })

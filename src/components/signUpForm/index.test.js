@@ -1,6 +1,7 @@
 import SignUpForm from '.'
 import { render, fireEvent } from "@testing-library/react"
 
+
 let defaultProps;
 
 describe("<signupForm/>", () => {
@@ -14,6 +15,13 @@ describe("<signupForm/>", () => {
 
   it("should display the form labels", () => {
     const rendered = render(<SignUpForm />)
+
+    // const rendered = new SignUpForm.create(
+    //   <FlashContext>
+    //     <SignUpForm />
+    //   </FlashContext>
+    // )
+    
     
     expect(rendered.getByTestId("signUpTitle")).toBeTruthy()
     expect(rendered.getByTestId("signUpLink")).toBeTruthy()

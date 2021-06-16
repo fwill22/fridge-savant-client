@@ -5,7 +5,17 @@ let mockMeal = {
   image: "http://fun.pics/123",
   sourceUrl: "http://fun.world/hello",
   title: "fun world",
-  readyInMinutes: 5
+  readyInMinutes: 5,
+  extendedIngredients: [
+    {
+      id: 1234,
+      name: 'apple'
+    },
+    {
+      id: 4567,
+      name: 'pear'
+    }
+  ]
 }
 
 describe("<Meal/>", () => {
@@ -14,7 +24,6 @@ describe("<Meal/>", () => {
 
     expect(rendered.getByAltText("your meal")).toHaveAttribute("src", mockMeal.image)
     expect(rendered.getByText(mockMeal.title)).toBeTruthy()
-    // expect(rendered.getByText(mockMeal.title)).toHaveAttribute("href", mockMeal.sourceUrl)
     expect(rendered.getByText(`Ready in ${mockMeal.readyInMinutes} minutes`)).toBeTruthy()
   })
 })

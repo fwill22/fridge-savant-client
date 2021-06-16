@@ -11,13 +11,31 @@ describe("<MealList/>", () => {
         {
           image: "http://fun.pics/123",
           title: 'test1',
-          ingredients: 'apple',
+          extendedIngredients: [
+            {
+              id: 1234,
+              name: 'apple'
+            },
+            {
+              id: 4567,
+              name: 'grape'
+            }
+          ],
           readyInMinutes: 5
         },
         {
           image: "http://fun.pics/456",
           title: 'test2',
-          ingredients: 'pear',
+          extendedIngredients: [
+            {
+              id: 1234,
+              name: 'strawberry'
+            },
+            {
+              id: 4567,
+              name: 'pear'
+            }
+          ],
           readyInMinutes: 5
         }
       ]
@@ -29,9 +47,9 @@ describe("<MealList/>", () => {
     const rendered = render(<MealList {...defaultProps}/>)
     
     expect(rendered.getByText(/test1/i)).toBeInTheDocument();
-    expect(rendered.getByText(/apple/i)).toBeInTheDocument();
+    expect(rendered.getByText(/Apple/i)).toBeInTheDocument();
     expect(rendered.getByText(/test2/i)).toBeInTheDocument();
-    expect(rendered.getByText(/pear/i)).toBeInTheDocument();
+    expect(rendered.getByText(/Pear/i)).toBeInTheDocument();
     
   })
 
