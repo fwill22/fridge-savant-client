@@ -48,11 +48,6 @@ In the project directory, run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-
-```
-yarn build
-```
-
 ## Testing and Linting
 ### Run Tests
 ```
@@ -65,12 +60,23 @@ yarn test
 ## Design and Approach
 
 ### Project Management
-  [Trello Board](https://trello.com/b/U40Atkm9/fridge)
+- [Trello Board](https://trello.com/b/U40Atkm9/fridge)
 
 ### User stories
 
 ### Diagrams
 
+<details>
+  <summary> Design mock up </summary> <br>
+    <img src="public/assets/images/WebsiteMockUp.png)" />
+  <br>
+</details>
+
+<details>
+  <summary> MVP sequence diagram </summary> <br>
+    <img src="public/assets/images/mvpsequence.png)" />
+  <br>
+</details>
 
 ## Built by:
 - Matt Dawson | [GitHub](https://github.com/MattDawson2020)
