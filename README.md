@@ -73,9 +73,10 @@ yarn test
 ---------------------------------------
 ## Features
 ----------------------------------------
-[x] Feature 1
-[x] Feature 2
-[x] Feature 3
+- [x] Feature 1
+- [x] Feature 2
+- [x] Feature 3
+- [ ] 
 etc...
 ## Tech Stack
 ----------------------------------------
