@@ -1,11 +1,11 @@
 export const setAuthToken = (token) => {
-  localStorage.setItem("fsAuthToken", token);
+  localStorage.setItem("fsStoreToken", token);
 };
 
 export const getAuthToken = () => {
-  return localStorage.getItem("fsAuthToken");
+  return localStorage.getItem("fsStoreToken");
 };
 
-export const clearAuthToken = () => {
-  localStorage.removeItem("fsAuthToken");
+export const clearStoreToken = () => {
+  localStorage.removeItem("fsStoreToken");
 };

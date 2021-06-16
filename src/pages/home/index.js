@@ -1,87 +1,78 @@
-import React, { useState, useEffect } from 'react';
-import MealList from '../../components/MealList';
-import IngredientList from '../../components/IngredientList';
-import Header from '../../components/Header';
-import Slider from '../../components/Slider';
-import WelcomeText from '../../components/WelcomeText';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCarrot } from '@fortawesome/free-solid-svg-icons';
-import axios from 'axios';
-
+import React, { useState, useEffect, useContext } from "react";
+import MealList from "../../components/MealList";
+import IngredientList from "../../components/IngredientList";
+import Header from "../../components/Header";
+import Slider from "../../components/Slider";
+import WelcomeText from "../../components/WelcomeText";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCarrot } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
+import SearchBox from "../../components/SearchBox";
+import { StoreContext } from "../../providers/store";
 
 const Home = () => {
-  const [basket, setBasket] = useState([]);
+  const [{ basket }, { addIngredient, removeIngredient, clearIngredients }] =
+    useContext(StoreContext);
   const [mealData, setMealData] = useState(null);
   const [mealIds, setMealIds] = useState([]);
 
-  useEffect(() => {
-    if (basket.length !== 0) {
-      document.getElementById('reset-basket-button').style.display = 'block';
-      document.querySelector('.search-recipe-button').style.display = 'block';
-    } else {
-      document.getElementById('reset-basket-button').style.display = 'none';
-      document.querySelector('.search-recipe-button').style.display = 'none';
-    }
-  });
+  // const addIngredient = () => {
+  //   if (
+  //     basket.find(
+  //       (ingredient) => ingredient.name === ingredientInput.toLowerCase()
+  //     )
+  //   ) {
+  //     // add flash error message
+  //   } else if (ingredientInput === "") return;
+  //   else {
+  //     setBasket(basket.concat({ name: ingredientInput }));
+  //   }
+  //   setIngredientInput("");
+  // };
 
-  const addIngredient = () => {
-    const newIngredient = document
-      .querySelector('.ingredient-input')
-      .value.toLowerCase();
-    if (basket.find((ingredient) => ingredient.name === newIngredient)) {
-      // add flash error message
-    } else if (newIngredient === '') return;
-    else {
-      setBasket(basket.concat({ name: newIngredient }));
-    }
-    resetQuery();
-  };
-
-  const deleteIngredient = (ingredientName) => {
-    setBasket(
-      basket.filter((ingredient) => ingredient.name !== ingredientName)
-    );
-  };
+  // const deleteIngredient = (ingredientName) => {
+  //   setBasket(
+  //     basket.filter((ingredient) => ingredient.name !== ingredientName)
+  //   );
+  // };
 
   const getMealInfo = (ingredients) => {
-    axios.get(
-      `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ranking=2&ingredients=${ingredients}`
-    )
+    axios
+      .get(
+        `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ranking=2&ingredients=${ingredients}`
+      )
       .then((response) => {
         setMealIds(mealIds.push(formatMealIds(response)));
         getMealData(mealIds);
       })
       .catch(() => {
-        ('Error');
+        ("Error");
       });
   };
 
   const getMealData = (mealIds) => {
     let mealIdString = mealIds.join();
-    axios.get (
-      `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ids=${mealIdString}`
-    )
+    axios
+      .get(
+        `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ids=${mealIdString}`
+      )
       .then((response) => {
         setMealData(response.data);
         resetMealIds();
       });
   };
 
-  const resetQuery = () => {
-    document.querySelector('.ingredient-input').value = '';
-  };
-
-  const resetBasket = () => {
-    setBasket([]);
-  };
+  // const resetBasket = () => {
+  //   setBasket([]);
+  // };
 
   const searchMeals = () => {
     const ingredientNames = basket.map((ingredient) => ingredient.name);
-    getMealInfo(ingredientNames.join(',+'));
+    getMealInfo(ingredientNames.join(",+"));
   };
 
   const formatMealIds = (response) => {
-    return response.data.map((data) => data.id).join(',');
+    return response.data.map((data) => data.id).join(",");
   };
 
   const resetMealIds = () => {
@@ -93,66 +84,53 @@ const Home = () => {
   };
 
   const clearAll = () => {
-    resetBasket();
+    clearIngredients();
     resetMeals();
   };
 
-  //flash message for creating bookmarks / you have already bookmarked this + log out 
+  //flash message for creating bookmarks / you have already bookmarked this + log out
 
   return (
-    <div class='Home'>
-      <div class='Header'>
+    <div className="Home">
+      <div className="Header">
         <Header />
       </div>
-      <div class='WelcomeText'>
+      <div className="WelcomeText">
         <WelcomeText />
       </div>
-      <div class='Slider'>
+      <div className="Slider">
         <Slider />
       </div>
-      <div class='SearchBox'>
-        <div class='form-container'>
-          <div class='form-tab'>
-            <div class='search-field'>
-              <FontAwesomeIcon icon={faCarrot} class='search-icon' />
-              <form>
-                <input
-                  type='text'
-                  class='ingredient-input'
-                  placeholder="What's in your fridge?"
-                />
-              </form>
-            </div>
-            <div class='add-ingredient-btn' onClick={addIngredient}>
-              <p>add ingredient</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <SearchBox addIngredient={addIngredient} />
 
-      <div class='Ingredients'>
-        <IngredientList basket={basket} deleteIngredient={deleteIngredient} />
+      <div className="Ingredients">
+        <IngredientList basket={basket} deleteIngredient={removeIngredient} />
       </div>
-      <div class='IngredientsOptions'>
-        <button
-          onClick={() => {
-            searchMeals();
-          }}
-          className='search-recipe-button'
-        >
-          find recipes
-        </button>
-        <button
-          id='reset-basket-button'
-          onClick={clearAll}
-          className='reset-basket-button'
-        >
-          clear ingredients
-        </button>
+      <div className="IngredientsOptions">
+        {basket.length > 0 && (
+          <>
+            <button
+              onClick={() => {
+                searchMeals();
+              }}
+              className="search-recipe-button"
+            >
+              find recipes
+            </button>
+
+            <button
+              id="reset-basket-button"
+              onClick={clearAll}
+              className="reset-basket-button"
+            >
+              clear ingredients
+            </button>
+          </>
+        )}
       </div>
-      <div class='Recipes'>{mealData && <MealList mealData={mealData} />}</div>
-      <div class='User'>User</div>
-      <div class='Footer'>Footer</div>
+      <div className="Recipes">{mealData && <MealList mealData={mealData} />}</div>
+      <div className="User">User</div>
+      <div className="Footer">Footer</div>
     </div>
   );
 };

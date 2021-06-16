@@ -1,12 +1,12 @@
-import React, { useState, useContext } from 'react';
-import { AuthContext } from '../../providers/auth';
-import './index.css';
+import React, { useState, useContext } from "react";
+import { StoreContext } from "../../providers/store";
+import "./index.css";
 
 const LoginForm = ({ handleCardFlip }) => {
-  const [state, actions] = useContext(AuthContext);
+  const [state, actions] = useContext(StoreContext);
   const [logInDetails, setLogInDetails] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
 
   const handleChange = (event) => {
@@ -28,8 +28,8 @@ const LoginForm = ({ handleCardFlip }) => {
   };
 
   return (
-    <div className='loginForm'>
-      <h2 className='loginTitle' data-testid='loginTitle'>
+    <div className="loginForm">
+      <h2 className="loginTitle" data-testid="loginTitle">
         Login
       </h2>
       {state && state.user && (
@@ -41,41 +41,41 @@ const LoginForm = ({ handleCardFlip }) => {
       )}
       <form onSubmit={handleLoginSubmit}>
         <input
-          type='email'
-          className='form-input'
-          id='loginEmail'
-          name='email'
-          placeholder='Email'
-          data-testid='loginEmail'
+          type="email"
+          className="form-input"
+          id="loginEmail"
+          name="email"
+          placeholder="Email"
+          data-testid="loginEmail"
           value={logInDetails.email}
           onChange={handleChange}
           required
         />
         <br />
         <input
-          type='password'
-          className='form-input'
-          id='loginPassword'
-          name='password'
-          placeholder='Password'
+          type="password"
+          className="form-input"
+          id="loginPassword"
+          name="password"
+          placeholder="Password"
           value={logInDetails.password}
           onChange={handleChange}
           required
         />
         <br />
         <input
-          type='submit'
-          className='formButton'
-          id='loginButton'
-          value='Log In'
-          data-testid='loginButton'
+          type="submit"
+          className="formButton"
+          id="loginButton"
+          value="Log In"
+          data-testid="loginButton"
         />
       </form>
       <p>
-        Don't have an account?{' '}
+        Don't have an account?{" "}
         <span
-          className='signUpLink'
-          data-testid='signUpLink'
+          className="signUpLink"
+          data-testid="signUpLink"
           onClick={handleCardFlip}
         >
           Sign Up!
