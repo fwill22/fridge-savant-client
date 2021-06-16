@@ -16,7 +16,7 @@ const Meal = ({ meal }) => {
         <div className='meal-card-text'>
           <h3>{meal.title}</h3>
           <p>Ready in {meal.readyInMinutes} minutes</p>
-          <ul>
+          <ul className='meal-card-ingredients'>
             {meal.extendedIngredients.map((ingredient) => {
               return <li key = {ingredient.id}> {capitalizeFirstLetter(ingredient.name)}</li>
             })}
