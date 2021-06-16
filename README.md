@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+# Fridge Savant
+## Live Demo
+[Demo Gif]
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+----------------------------------------------
 
-## Available Scripts
+Top level project overview
 
-In the project directory, you can run:
+----------------------------------------------
 
-### `yarn start`
+## Table of Contents
+  - [Setup](#setup)
+  - [Testing and Linting](#testing-and-linting)
+    - [Test Coverage](#test-coverage)
+  - [Features](#features)
+  - [Tech Stack](#tech-stack)
+    - [Dependencies](#dependencies)
+  - [Design and Approach](#design-and-approach)
+    - [Project Management](#project-management)
+    - [User stories](#user-stories)
+    - [Diagrams and Models](#diagrams)
+
+----------------------------------------------
+## Setup 
+To run the app - clone this repo and install dependencies: \
+\
+`Client Side`
+```
+$ git clone git@github.com:jasonrowsell/fridge-savant-client.git
+$ cd fridge-savant-client
+$ yarn install
+```
+Create and configure `.env` to add your API key
+```
+(config instructions)
+```
+`Server Side`
+```
+(instructions)
+```
+In the project directory, run:
+
+```
+ yarn start
+```
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
+```
+yarn build
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Testing and Linting
+### Run Tests
+```
+yarn test
+```
+### Run Linting
+```
 
-### `yarn build`
+```
+## Design and Approach
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Project Management
+  [Trello Board](https://trello.com/b/U40Atkm9/fridge)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### User stories
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Diagrams
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Built by:
+- Matt Dawson | [GitHub](https://github.com/MattDawson2020)
+- Noa Farber | [GitHub](https://github.com/noarfarber)
+- Kane Gin | [GitHub](https://github.com/KaneG9)
+- Mike Jeuga | [GitHub](https://github.com/mikejeuga)
+- Jason Rowsell | [GitHub](https://github.com/jasonrowsell)
+- Finn Williamson | [GitHub](https://github.com/fwill22)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+[Top](#live-demo)
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
