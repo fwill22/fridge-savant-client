@@ -4,7 +4,7 @@ import './index.css';
 const WelcomeText = () => {
   return (
     <div className='welcome-container'>
-      There is nothing as creative as cooking.
+      Make the best with what you've got.
     </div>
   );
 };
