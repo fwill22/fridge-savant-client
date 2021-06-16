@@ -24,7 +24,6 @@ const LoginForm = ({ handleCardFlip }) => {
   const handleLoginSubmit = async (event) => {
     event.preventDefault();
     const status = await actions.signIn(logInDetails);
-    console.log('in comp', status, state)
     if (status >= 400) {
       createFlashMessage({
         type: 'error',

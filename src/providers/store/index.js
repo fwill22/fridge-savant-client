@@ -18,7 +18,6 @@ const StoreProvider = ({ children }) => {
 
   const signIn = async ({ email, password }) => {
     const signInAction = await signInCreator({ email, password });
-    console.log('inprovider', signInAction)
     dispatch(signInAction)
     return signInAction.status
   };

@@ -24,7 +24,6 @@ const storeReducer = (previousState, action) => {
         user: action.payload.user,
       };
     case StoreConstants.STORE_ERROR:
-      console.log('in reducer error', action.payload)
       return {
         ...previousState,
         loading: false,

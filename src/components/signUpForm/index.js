@@ -58,13 +58,11 @@ const SignUpForm = ({ handleCardFlip }) => {
             },
           }
         );
-        console.log('success', response)
         createFlashMessage({
           type: "success",
           message: `Account created. Welcome ${response.data.name}!`,
         })
       } catch (e) {
-        console.log(e.response.data)
         createFlashMessage({ type: "error", message: `Error: ${e.response.data.errors[0].msg}`})
       }
     }
