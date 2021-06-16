@@ -65,12 +65,10 @@
 
 .Adverts {
   grid-area: Adverts;
-  /* background-color: orange; */
 }
 
 .Footer {
   grid-area: Footer;
-  background-color: yellow;
 }
 
 /* Add Ingredients */

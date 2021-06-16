@@ -53,6 +53,8 @@
 }
 .meal-card-body button:hover {
   border-color: #d099a0;
+  color: #d099a0;
+  cursor: pointer;
 }
 .meal-card-text {
   position: relative;
@@ -128,12 +130,7 @@ a:hover {
   top: 74%;
   right: 5%;
   border-style: none;
-  cursor: pointer
-}
-
-.bookmark-meal:hover {
-  transform: scale(1.3);
-  transition: 0.5s;
+  cursor: pointer;
 }
 
 .emailShareButton {
@@ -143,7 +140,7 @@ a:hover {
 }
 
 .emailShareButton:hover {
-  transform: scale(1.3);
+  transform: scale(1.2);
   transition: 0.5s;
 }
 
@@ -154,7 +151,7 @@ a:hover {
 }
 
 .facebookShareButton:hover {
-  transform: scale(1.3);
+  transform: scale(1.2);
   transition: 0.5s;
 }
 
@@ -165,7 +162,7 @@ a:hover {
 }
 
 .whatsappShareButton:hover {
-  transform: scale(1.3);
+  transform: scale(1.2);
   transition: 0.5s;
 }
 
@@ -182,8 +179,9 @@ a:hover {
 }
 
 .bookmark-icon:hover {
-  transform: scale(1.3);
+  transform: scale(1.2);
   transition: 0.5s;
+  cursor: pointer;
 }
 
 .meal-card-ingredients {
