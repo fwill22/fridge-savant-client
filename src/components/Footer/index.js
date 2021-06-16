@@ -1,7 +1,10 @@
 import React from 'react';
 import './index.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF } from '@fortawesome/free-regular-svg-icons';
+import { faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faTelegram } from '@fortawesome/free-brands-svg-icons';
+import { faPinterest } from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
   return (
@@ -28,9 +31,10 @@ const Footer = () => {
         </div>
         <div class='footer_right'>
           <div class='footer_links'>
-            <i class='fas fa-twitter'></i>
-            <i class='fas fa-telegram'></i>
-            <i class='fas fa-pintrest'></i>
+            <FontAwesomeIcon icon={faFacebook} />
+            <FontAwesomeIcon icon={faTwitter} />
+            <FontAwesomeIcon icon={faTelegram} />
+            <FontAwesomeIcon icon={faPinterest} />
           </div>
         </div>
       </div>
