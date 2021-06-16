@@ -7,6 +7,10 @@ const SearchBox = ({ addIngredient }) => {
   const [ingredientInput, setIngredientInput] = useState("");
 
  const queryChange = (ingredientInput) => {
+
+   if(ingredientInput === "" ) {
+     return
+   } 
     addIngredient({ name: ingredientInput.toLowerCase()})
     setIngredientInput("")
   }

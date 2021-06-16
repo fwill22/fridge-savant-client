@@ -31,11 +31,6 @@ const Home = () => {
   //   setIngredientInput("");
   // };
 
-  // const deleteIngredient = (ingredientName) => {
-  //   setBasket(
-  //     basket.filter((ingredient) => ingredient.name !== ingredientName)
-  //   );
-  // };
 
   const getMealInfo = (ingredients) => {
     axios
@@ -63,9 +58,6 @@ const Home = () => {
       });
   };
 
-  // const resetBasket = () => {
-  //   setBasket([]);
-  // };
 
   const searchMeals = () => {
     const ingredientNames = basket.map((ingredient) => ingredient.name);

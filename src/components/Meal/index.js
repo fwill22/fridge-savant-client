@@ -8,7 +8,7 @@ import { faBookmark } from '@fortawesome/free-regular-svg-icons';
 import { capitalizeFirstLetter } from "../../lib/string-utils";
 
 const Meal = ({ meal }) => {
-
+  
   const [bookmarkColour, setBookmarkColour] = useState('');
 
   const changeColour = () => {

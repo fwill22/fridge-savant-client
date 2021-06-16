@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-// import "./index.css";
+import "./index.css";
 
 const Advertisements = () => {
   
 
   return (
-    <div>
+    <div className="advert-container">
       <img src='https://penji.co/wp-content/uploads/2019/03/wagamama-Food-Ad-Designs.jpg' style= {{maxWidth:'100%'}}></img>
       <img src='https://penji.co/wp-content/uploads/2019/03/demorfi-Food-Ad-Designs.jpg' style= {{maxWidth:'100%'}}></img>
       <img src='https://penji.co/wp-content/uploads/2019/03/CurtisTea-Food-Ad-Designs.jpg' style= {{maxWidth:'100%'}}></img>

@@ -3,14 +3,13 @@ import Ingredient from "../Ingredient";
 import "./index.css";
 
 const IngredientList = ({ basket, deleteIngredient }) => {
-  console.log(basket);
   return (
     <div className="Ingredients">
       {basket.map((ingredient) => (
         <Ingredient
           key={`ingredient-${ingredient.name}`}
           {...{ name: ingredient.name }}
-          {...{ image: ingredient.image }}
+          // {...{ image: ingredient.image }}
           {...{ deleteIngredient: deleteIngredient }}
         />
       ))}
