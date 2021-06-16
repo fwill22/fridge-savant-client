@@ -5,13 +5,13 @@ import {
   EmailIcon
 } from "react-share";
 
-const Share = ({title, recipeUrl}) => {
+const EmailShare = ({title, recipeUrl}) => {
   return (
     <div>    
-      <div className="Demo__some-network">
+      <div className="emailShare">
         <EmailShareButton
-          subject={title}
-          body={`Hey! I found this great recipe on my Fridgey Boi, come check it out! 
+          subject={`I'm making ${title}`}
+          body={`Hey! I found this great recipe on my Fridge Savant, come check it out! 
 
           ${title}
           
@@ -30,4 +30,4 @@ www.FridgeSavant.com`}
   )
 }
 
-export default Share
+export default EmailShare

@@ -1,6 +1,7 @@
 import React from 'react';
 import './index.css';
-import Share from '../Share'
+import EmailShare from '../EmailShare'
+import FacebookShare from '../FacebookShare';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark } from '@fortawesome/free-regular-svg-icons';
 
@@ -17,7 +18,8 @@ const Meal = ({ meal }) => {
         </div>
         <button className='more-info-meal'>More...</button>
         <button className='bookmark-meal'><FontAwesomeIcon icon={faBookmark} className='bookmark-icon' /></button>
-        <Share className='email-share-btn' title={meal.title} recipeUrl={meal.sourceUrl}/>
+        <EmailShare className='email-share-btn' title={meal.title} recipeUrl={meal.sourceUrl}/>
+        <FacebookShare className='facebook-share-btn' recipeUrl={meal.sourceUrl}/>
       </div>
     </div>
   );
