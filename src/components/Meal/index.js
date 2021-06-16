@@ -5,17 +5,22 @@ import FacebookShare from '../FacebookShare';
 import WhatsappShare from '../WhatsappShare';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark } from '@fortawesome/free-regular-svg-icons';
+import { capitalizeFirstLetter } from "../../lib/string-utils";
 
 const Meal = ({ meal }) => {
+  console.log(meal.extendedIngredients)  
   return (
-
     <div className='meal-card'>
       <img src={meal.image} alt="your meal" />
       <div className='meal-card-body'>
         <div className='meal-card-text'>
           <h3>{meal.title}</h3>
           <p>Ready in {meal.readyInMinutes} minutes</p>
-          <p>{meal.summary}</p>
+          <ul>
+            {meal.extendedIngredients.map((ingredient) => {
+              return <li key = {ingredient.id}> {capitalizeFirstLetter(ingredient.name)}</li>
+            })}
+          </ul>
         </div>
         <button className='more-info-meal' 
           type="button"
