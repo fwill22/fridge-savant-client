@@ -7,6 +7,7 @@ import {
   removeIngredient as removeIngredientCreator,
   clearIngredients as clearIngredientsCreator,
 } from "../../lib/store/action-creators";
+import FlashMessage from '../Flash'
 
 export const StoreContext = React.createContext(null);
 
@@ -18,8 +19,8 @@ const StoreProvider = ({ children }) => {
 
   const signIn = async ({ email, password }) => {
     const signInAction = await signInCreator({ email, password });
-
-    dispatch(signInAction);
+    console.log('inprovider', signInAction)
+    dispatch(signInAction)
   };
 
   const getUser = async () => {

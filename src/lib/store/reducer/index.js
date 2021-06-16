@@ -23,6 +23,13 @@ const storeReducer = (previousState, action) => {
         error: null,
         user: action.payload.user,
       };
+    case StoreConstants.STORE_ERROR:
+      console.log('in store error', action.payload)
+      return {
+        ...previousState,
+        loading: false,
+        error: action.payload.message,
+      };
     case StoreConstants.ADD_TO_BASKET:
       return {
         ...previousState,

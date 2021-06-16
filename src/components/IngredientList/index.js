@@ -3,7 +3,6 @@ import Ingredient from "../Ingredient";
 import "./index.css";
 
 const IngredientList = ({ basket, deleteIngredient }) => {
-  console.log(basket);
   return (
     <div className="Ingredients">
       {basket.map((ingredient) => (

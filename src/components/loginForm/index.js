@@ -17,14 +17,10 @@ const LoginForm = ({ handleCardFlip }) => {
     }));
   };
 
-  const handleLoginSubmit = (event) => {
+  const handleLoginSubmit = async (event) => {
     event.preventDefault();
-    actions.signIn(logInDetails);
-  };
-
-  const handleGetUser = (event) => {
-    event.preventDefault();
-    actions.getUser();
+    await actions.signIn(logInDetails);
+    console.log('in comp', state)
   };
 
   return (
@@ -32,13 +28,6 @@ const LoginForm = ({ handleCardFlip }) => {
       <h2 className="loginTitle" data-testid="loginTitle">
         Login
       </h2>
-      {state && state.user && (
-        <div>
-          you are:
-          <p>{state.user.name}</p>
-          <button onClick={handleGetUser}>Ask for yourself again ?</button>
-        </div>
-      )}
       <form onSubmit={handleLoginSubmit}>
         <input
           type="email"

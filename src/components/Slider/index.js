@@ -5,8 +5,6 @@ import img2 from './images/carousel2.jpeg'
 import img3 from './images/carousel3.jpeg'
 import img4 from './images/carousel4.jpeg'
 
-
-
 const colors = [
   img1,
   img2,

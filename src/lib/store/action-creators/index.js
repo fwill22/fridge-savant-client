@@ -3,24 +3,33 @@ import StoreConstants from "../constants";
 import { setAuthToken, getAuthToken } from "../../token";
 
 export const signIn = async ({ email, password }) => {
-  const response = await axios.post(
-    "http://localhost:5000/api/users/login",
-    { email, password },
-    {
-      headers: {
-        "Content-Type": "application/json",
-      },
+  try {
+    const response = await axios.post(
+      "http://localhost:5000/api/users/login",
+      { email, password },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    console.log('in actyion cferator', response)
+    // Set the store token
+    setAuthToken(response.data.token);
+
+    // Create an action
+    return {
+      type: StoreConstants.SIGN_IN,
+      payload: { user: response.data },
+      status: response.status
     }
-  );
-
-  // Set the store token
-  setAuthToken(response.data.token);
-
-  // Create an action
-  return {
-    type: StoreConstants.SIGN_IN,
-    payload: { user: response.data },
-  };
+  } catch (error) {
+    console.log('in catch', error)
+    return {
+      type: StoreConstants.STORE_ERROR,
+      payload: {message: error.message}
+    }
+  }
 };
 
 export const getUser = async () => {
