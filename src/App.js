@@ -1,14 +1,17 @@
 import React from 'react';
 import Pages from './pages';
-import FlashProvider from './providers/Flash';
 import './App.css';
+import AuthProvider from './providers/auth';
+import FlashProvider from './providers/Flash';
 
 const App = () => {
   return (
     <div className='App'>
-      <FlashProvider>
-        <Pages />
-      </FlashProvider>
+      <AuthProvider>
+        <FlashProvider>
+          <Pages />
+        </FlashProvider>
+      </AuthProvider>
     </div>
   );
 };
