@@ -14,7 +14,7 @@ const Meal = ({ meal }) => {
   const changeColour = () => {
     bookmarkColour === '' ? setBookmarkColour("-goldbutton") : setBookmarkColour('')
   }
-  
+
   return (
     <div className='meal-card'>
       <img src={meal.image} alt="your meal" />
@@ -36,7 +36,7 @@ const Meal = ({ meal }) => {
         <EmailShare className='email-share-btn' title={meal.title} recipeUrl={meal.sourceUrl}/>
         <FacebookShare className='facebook-share-btn' recipeUrl={meal.sourceUrl}/>
         <WhatsappShare className='whatsapp-share-btn' recipeUrl={meal.sourceUrl}/>
-        <FontAwesomeIcon icon={faBookmark} size='2x' color='' className={`bookmark-icon${bookmarkColour}`} onClick={changeColour}/>
+        <FontAwesomeIcon icon={faBookmark} size='2x' className={`bookmark-icon${bookmarkColour}`} onClick={changeColour}/>
       </div>
     </div>
   );
