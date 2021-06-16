@@ -6,6 +6,11 @@ import axios from "axios";
 const SearchBox = ({ addIngredient }) => {
   const [ingredientInput, setIngredientInput] = useState("");
 
+ const queryChange = (ingredientInput) => {
+    addIngredient({ name: ingredientInput.toLowerCase()})
+    setIngredientInput("")
+  }
+
   return (
     <div class="SearchBox">
       <div class="form-container">
@@ -25,7 +30,7 @@ const SearchBox = ({ addIngredient }) => {
           <div
             class="add-ingredient-btn"
             onClick={() =>
-              addIngredient({ name: ingredientInput.toLowerCase() })
+              queryChange(ingredientInput)
             }
           >
             <p>add ingredient</p>
