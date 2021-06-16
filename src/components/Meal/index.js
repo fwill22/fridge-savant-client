@@ -17,7 +17,11 @@ const Meal = ({ meal }) => {
           <p>Ready in {meal.readyInMinutes} minutes</p>
           <p>{meal.summary}</p>
         </div>
-        <button className='more-info-meal'>More...</button>
+        <button className='more-info-meal' 
+          type="button"
+          onClick={ (e) => {
+          e.preventDefault();
+          window.location.href=`${meal.sourceUrl}` } }>View this recipe...</button>
         <button className='bookmark-meal'><FontAwesomeIcon icon={faBookmark} className='bookmark-icon' /></button>
         <EmailShare className='email-share-btn' title={meal.title} recipeUrl={meal.sourceUrl}/>
         <FacebookShare className='facebook-share-btn' recipeUrl={meal.sourceUrl}/>
