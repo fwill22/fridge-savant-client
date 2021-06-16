@@ -1,4 +1,4 @@
-<img src="public/assets/images/Copy%20of%20Fridge%20Savant%20Logo%20Horizontal.gif" alt="logo" width="800" />
+<img src="public/assets/images/Copy%20of%20Fridge%20Savant%20Logo%20Horizontal.gif" alt="logo" width="850" />
 
 ## Live Demo
 [Demo Gif]
