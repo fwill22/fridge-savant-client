@@ -1,0 +1,49 @@
+.Bookmark {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 0.8fr;
+  grid-template-rows: 0.1fr 0.1fr 0.1fr;
+  gap: 10px 10px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    'Header Header Header'
+    'UserText UserText UserText'
+    'Recipes Recipes Recipes'
+    'Footer Footer Footer';
+  width: 100vw;
+
+  background-color: #f2f5f7;
+}
+
+.Header {
+  grid-area: Header;
+}
+
+.UserText {
+  margin-top: 30px;
+  grid-area: UserText;
+}
+
+.bookmark-container {
+  margin: 70px 0 0 100px;
+}
+
+.Bookmark .meal-card {
+  float: left;
+  max-width: 30em;
+  margin: 10px;
+}
+
+.Bookmark .meal-card img {
+  margin: 0.9em;
+  border-radius: 0.5rem;
+  height: 80%;
+  max-width: 18em;
+  object-fit: contain;
+  flex: 1 1 auto;
+}
+
+.Bookmark .Recipes {
+  padding: 0;
+  justify-content: center;
+  margin: auto;
+}
