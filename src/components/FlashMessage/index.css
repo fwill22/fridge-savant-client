@@ -25,7 +25,7 @@
   }
 }
 
-.flash-message[outro='1'] {
+/* .flash-message[outro='1'] {
   animation-name: slideout;
   animation-duration: 2s;
 }
@@ -37,7 +37,7 @@
   to {
     right: -300px;
   }
-}
+} */
 
 .flash-header-success {
   background-color: green;
