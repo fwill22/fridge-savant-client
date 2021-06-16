@@ -38,7 +38,13 @@
 /* Styling of other elements */
 .header-logo img {
   display: block;
-  height: calc(var(--header-inner-height) - 30px);
+  height: 200px;
+}
+
+.header-logo img:hover {
+  display: block;
+  height: 200px;
+  cursor: pointer;
 }
 
 .header-navigation {
@@ -66,6 +72,10 @@
   border: 0;
   background-color: transparent;
   padding: 0;
+}
+
+.header-navigation button:hover {
+  cursor: pointer;
 }
 
 .header-navigation a:hover:after,

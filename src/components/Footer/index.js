@@ -13,20 +13,21 @@ const Footer = () => {
         <div class='footer_about'>
           <h3>About Us</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-            aliquid, inventore veritatis, a beatae asperiores eveniet ex
-            repudiandae voluptatibus tempora, optio nam harum temporibus
-            tempore. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Nisi recusandae dolore molestiae quis iste.
+            Fridge Savant is a virtual kitchen assistant to help you make the
+            best with what you've got. Designed to inspire creativity in the
+            kitchen when your fridge looks bare, the app makes decision making
+            easier when it comes to meal times. By encouraging you to use up the
+            ingredients you have to hand, Fridge Savant helps you to reduce food
+            waste, and so manage your budget better.
           </p>
         </div>
         <div class='footer_main'>
-          <h3>Quick Start</h3>
+          <h3>Quick Links</h3>
           <ul>
-            <li>lorem lorem</li>
-            <li>lorem</li>
-            <li>lorem lorem</li>
-            <li>lorem lorem</li>
+            <li>Blog</li>
+            <li>API</li>
+            <li>Contact Us</li>
+            <li>Terms & Conditions</li>
           </ul>
         </div>
         <div class='footer_right'>
