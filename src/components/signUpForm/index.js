@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { FlashContext } from '../../providers/Flash';
 import './index.css';
+import axios from 'axios'
 
 const SignUpForm = ({ handleCardFlip }) => {
   const initialState = {
@@ -48,21 +49,23 @@ const SignUpForm = ({ handleCardFlip }) => {
       }
 
       try {
-        const response = await fetch('http://localhost:5000/api/users/signup', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json' 
-          },
-          body: JSON.stringify(userDetails)
-        })
-        const res = await response.json()
-  
+        const response = await axios.post(
+          "http://localhost:5000/api/users/signup",
+          JSON.stringify(userDetails),
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        console.log('success', response)
         createFlashMessage({
           type: "success",
-          message: `Account created. Welcome ${res.name}`,
+          message: `Account created. Welcome ${response.data.name}!`,
         })
       } catch (e) {
-        createFlashMessage({ type: "error", message: `Error: ${e.message}`})
+        console.log(e.response.data)
+        createFlashMessage({ type: "error", message: `Error: ${e.response.data.errors[0].msg}`})
       }
     }
   }  

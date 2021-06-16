@@ -30,11 +30,6 @@ const storeReducer = (previousState, action) => {
         loading: false,
         error: true,
       };
-    case StoreConstants.CLEAR_ERRORS:
-      return {
-        ...previousState,
-        error: null,
-      }
     case StoreConstants.ADD_TO_BASKET:
       return {
         ...previousState,

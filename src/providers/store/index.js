@@ -6,7 +6,6 @@ import {
   addIngredient as addIngredientCreator,
   removeIngredient as removeIngredientCreator,
   clearIngredients as clearIngredientsCreator,
-  clearErrors as clearErrorsCreator,
 } from "../../lib/store/action-creators";
 
 export const StoreContext = React.createContext(null);
@@ -21,6 +20,7 @@ const StoreProvider = ({ children }) => {
     const signInAction = await signInCreator({ email, password });
     console.log('inprovider', signInAction)
     dispatch(signInAction)
+    return signInAction.status
   };
 
   const getUser = async () => {
@@ -42,16 +42,13 @@ const StoreProvider = ({ children }) => {
     const clearIngredientAction = clearIngredientsCreator();
     dispatch(clearIngredientAction);
   };
-  const clearErrors = () => {
-    const clearErrorAction = clearErrorsCreator()
-    dispatch(clearErrorAction)
-  }
+
 
   return (
     <StoreContext.Provider
       value={[
         state,
-        { signIn, getUser, addIngredient, removeIngredient, clearIngredients, clearErrors },
+        { signIn, getUser, addIngredient, removeIngredient, clearIngredients },
       ]}
     >
       {children}

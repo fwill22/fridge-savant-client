@@ -24,14 +24,11 @@ export const signIn = async ({ email, password }) => {
       status: response.status
     }
   } catch (error) {
-    console.log('in catch', error)
     console.log('in catch response', error.response)
     return {
       type: StoreConstants.STORE_ERROR,
-      payload: {
-        status: error.response.status,
-        message: error.response.data
-      }
+      payload: { message: error.response.data },
+      status: error.response.status
     }
   }
 };

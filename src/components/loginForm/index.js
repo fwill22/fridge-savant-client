@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { StoreContext } from "../../providers/store";
 import "./index.css";
 import { FlashContext } from '../../providers/Flash';
@@ -21,19 +21,20 @@ const LoginForm = ({ handleCardFlip }) => {
 
   const handleLoginSubmit = async (event) => {
     event.preventDefault();
-    await actions.signIn(logInDetails);
-    console.log('in comp', state)
-  };
-
-  useEffect(() => {
-    if(state.error){
+    const status = await actions.signIn(logInDetails);
+    console.log('in comp', status, state)
+    if (status >= 400) {
       createFlashMessage({
         type: 'error',
         message: 'Invalid username or password.'
       })
-      actions.clearErrors()
+    } else if (status >= 200) {
+      createFlashMessage({
+        type: 'success',
+        message: 'Successfully logged in.' //`Successfully logged in. Welcome ${state.user.name}!` - would like but state not updating in time
+      })
     }
-  }, [state.error])
+  };
 
   return (
     <div className="loginForm">
