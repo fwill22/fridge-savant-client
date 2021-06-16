@@ -31,10 +31,10 @@ const mealData = [
 const Bookmark = () => {
   return (
     <div className='Bookmark'>
-      <div class='Header'>
+      <div className='Header'>
         <Header />
       </div>
-      <div class='UserText'>
+      <div className='UserText'>
         <UserText />
       </div>
       <h1>Your Saved Recipes</h1>

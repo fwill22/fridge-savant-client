@@ -91,22 +91,22 @@ const Home = () => {
   //flash message for creating bookmarks / you have already bookmarked this + log out
 
   return (
-    <div class="Home">
-      <div class="Header">
+    <div className="Home">
+      <div className="Header">
         <Header />
       </div>
-      <div class="WelcomeText">
+      <div className="WelcomeText">
         <WelcomeText />
       </div>
-      <div class="Slider">
+      <div className="Slider">
         <Slider />
       </div>
       <SearchBox addIngredient={addIngredient} />
 
-      <div class="Ingredients">
+      <div className="Ingredients">
         <IngredientList basket={basket} deleteIngredient={removeIngredient} />
       </div>
-      <div class="IngredientsOptions">
+      <div className="IngredientsOptions">
         {basket.length > 0 && (
           <>
             <button
@@ -128,9 +128,9 @@ const Home = () => {
           </>
         )}
       </div>
-      <div class="Recipes">{mealData && <MealList mealData={mealData} />}</div>
-      <div class="User">User</div>
-      <div class="Footer">Footer</div>
+      <div className="Recipes">{mealData && <MealList mealData={mealData} />}</div>
+      <div className="User">User</div>
+      <div className="Footer">Footer</div>
     </div>
   );
 };
