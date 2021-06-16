@@ -70,13 +70,13 @@ yarn test
 
 <details>
   <summary> Design mock up </summary> <br>
-    <img src="public/assets/images/WebsiteMockUp.png)" />
+    <img src="public/assets/images/WebsiteMockUp.png" />
   <br>
 </details>
 
 <details>
   <summary> MVP sequence diagram </summary> <br>
-    <img src="public/assets/images/mvpsequence.png)" />
+    <img src="public/assets/images/mvpsequence.png" />
   <br>
 </details>
 
