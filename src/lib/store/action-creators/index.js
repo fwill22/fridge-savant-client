@@ -3,24 +3,32 @@ import StoreConstants from "../constants";
 import { setAuthToken, getAuthToken } from "../../token";
 
 export const signIn = async ({ email, password }) => {
-  const response = await axios.post(
-    "http://localhost:5000/api/users/login",
-    { email, password },
-    {
-      headers: {
-        "Content-Type": "application/json",
-      },
+  try {
+    const response = await axios.post(
+      "http://localhost:5000/api/users/login",
+      { email, password },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    // Set the store token
+    setAuthToken(response.data.token);
+
+    // Create an action
+    return {
+      type: StoreConstants.SIGN_IN,
+      payload: { user: response.data },
+      status: response.status
     }
-  );
-
-  // Set the store token
-  setAuthToken(response.data.token);
-
-  // Create an action
-  return {
-    type: StoreConstants.SIGN_IN,
-    payload: { user: response.data },
-  };
+  } catch (error) {
+    return {
+      type: StoreConstants.STORE_ERROR,
+      payload: { message: error.response.data },
+      status: error.response.status
+    }
+  }
 };
 
 export const getUser = async () => {
@@ -51,8 +59,14 @@ export const removeIngredient = (ingredient) => {
   };
 };
 
-export const clearIngredients = (ingredient) => {
+export const clearIngredients = () => {
   return {
     type: StoreConstants.CLEAR_BASKET,
   };
 };
+
+export const clearErrors = () => {
+  return {
+    type: StoreConstants.CLEAR_ERRORS,
+  }
+}

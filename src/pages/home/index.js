@@ -1,11 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import MealList from "../../components/MealList";
 import IngredientList from "../../components/IngredientList";
 import Header from "../../components/Header";
 import Slider from "../../components/Slider";
 import WelcomeText from "../../components/WelcomeText";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCarrot } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import SearchBox from "../../components/SearchBox";
 import { StoreContext } from "../../providers/store";

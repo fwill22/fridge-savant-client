@@ -18,8 +18,8 @@ const StoreProvider = ({ children }) => {
 
   const signIn = async ({ email, password }) => {
     const signInAction = await signInCreator({ email, password });
-
-    dispatch(signInAction);
+    dispatch(signInAction)
+    return signInAction.status
   };
 
   const getUser = async () => {
@@ -41,6 +41,7 @@ const StoreProvider = ({ children }) => {
     const clearIngredientAction = clearIngredientsCreator();
     dispatch(clearIngredientAction);
   };
+
 
   return (
     <StoreContext.Provider
