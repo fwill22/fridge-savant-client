@@ -12,6 +12,7 @@
   width: 100vw;
 
   background-color: #f2f5f7;
+  align-items: center;
 }
 
 .Header {
@@ -29,7 +30,7 @@
 
 .Bookmark .meal-card {
   float: left;
-  max-width: 30em;
+  max-width: 40em;
   margin: 10px;
 }
 
@@ -46,6 +47,7 @@
   padding: 0;
   justify-content: center;
   margin: auto;
+  margin-left: 55px;
 }
 
 .Bookmark .more-info-meal {
@@ -67,6 +69,7 @@
 
 .Bookmark .svg-inline--fa {
   margin-top: 5px;
+  color: gold;
 }
 
 .Bookmark .Recipes {

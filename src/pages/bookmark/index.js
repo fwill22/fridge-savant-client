@@ -11,13 +11,12 @@ const Bookmark = () => {
   const [bookmarkData, setBookmarkData] = useState([]);
 
   const getBookmarks = async () => {
-    let bookmarkIds = await getBookmarkAll();
-    console.log(bookmarkIds)
+    let bookmarkIds = await getBookmarkAll()
+    console.log('bookmarkids', bookmarkIds)
     let bookmarkIdString = bookmarkIds.join(",");
     const response = await axios.get(
       `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ids=${bookmarkIdString}`
     );
-    console.log(response)
     setBookmarkData(response.data);
   };
 
@@ -28,6 +27,7 @@ const Bookmark = () => {
         Authorization: `Bearer ${getAuthToken()}`,
       },
     });
+    console.log(response)
     return response.data;
   };
 
