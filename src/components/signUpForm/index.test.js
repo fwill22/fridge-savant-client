@@ -1,8 +1,12 @@
 import SignUpForm from '.'
 import { render, fireEvent } from "@testing-library/react"
+import {renderHook } from '@testing-library/react'
 
 
 let defaultProps;
+let mockSignUpFormActions = signUpFormProviderActions
+let mockSignUpFormState = signUpFormState
+let mockSignUpFormContext = jest.SpyInstance
 
 describe("<signupForm/>", () => {
   beforeEach(() => {
@@ -11,9 +15,23 @@ describe("<signupForm/>", () => {
       handleCardFlip: jest.fn(),
       handleChange: jest.fn()
     }
+    mockSignUpFormState = {
+      flashMessage: null,
+      loading: false,
+      error: null,
+      user: true,
+    }
+    mockSignUpFormActions = { SIGN_IN: jest.fn() }
+    mockSignUpFormContext = jest.spyOn(React, 'useContext');
   })
 
   it("should display the form labels", () => {
+
+    mockSignUpFormContext.mockImplementation(() => {
+      mockSignUpFormState,
+      mockSignUpFormActions
+    })
+
     const rendered = render(<SignUpForm />)
 
     // const rendered = new SignUpForm.create(
