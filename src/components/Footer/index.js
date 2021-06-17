@@ -9,8 +9,8 @@ import { faPinterest } from '@fortawesome/free-brands-svg-icons';
 const Footer = () => {
   return (
     <footer>
-      <div class='footer'>
-        <div class='footer_about'>
+      <div className='footer'>
+        <div className='footer_about'>
           <h3>About Us</h3>
           <p>
             Fridge Savant is a virtual kitchen assistant to help you make the
@@ -21,7 +21,7 @@ const Footer = () => {
             waste, and so manage your budget better.
           </p>
         </div>
-        <div class='footer_main'>
+        <div className='footer_main'>
           <h3>Quick Links</h3>
           <ul>
             <li>Blog</li>
@@ -30,8 +30,8 @@ const Footer = () => {
             <li>Terms & Conditions</li>
           </ul>
         </div>
-        <div class='footer_right'>
-          <div class='footer_links'>
+        <div className='footer_right'>
+          <div className='footer_links'>
             <FontAwesomeIcon icon={faFacebook} />
             <FontAwesomeIcon icon={faTwitter} />
             <FontAwesomeIcon icon={faTelegram} />
@@ -39,7 +39,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div class='copyright'>
+      <div className='copyright'>
         Copyright © 2021 All Rights Reserved by FridgeBoi.
       </div>
     </footer>

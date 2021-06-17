@@ -52,7 +52,6 @@ const Home = () => {
       )
       .then((response) => {
         setMealData(response.data);
-        console.log(response.data);
         resetMealIds();
       });
   };
@@ -82,22 +81,22 @@ const Home = () => {
   //flash message for creating bookmarks / you have already bookmarked this + log out
 
   return (
-    <div class="Home">
-      <div class="Header">
+    <div className='Home'>
+      <div className='Header'>
         <Header />
       </div>
-      <div class="WelcomeText">
+      <div className='WelcomeText'>
         <WelcomeText />
       </div>
-      <div class="Slider">
+      <div className='Slider'>
         <Slider />
       </div>
       <SearchBox addIngredient={addIngredient} />
 
-      <div class="Ingredients">
+      <div className='Ingredients'>
         <IngredientList basket={basket} deleteIngredient={removeIngredient} />
       </div>
-      <div class="IngredientsOptions">
+      <div className='IngredientsOptions'>
         {basket.length > 0 && (
           <>
             <button
@@ -119,9 +118,10 @@ const Home = () => {
           </>
         )}
       </div>
-      <div class="Recipes">{mealData && <MealList mealData={mealData} />}</div>
-      <div class="Adverts">{mealData && <Advertisements />}</div>
-      <div class="Footer">
+
+      <div className='Recipes'>{mealData && <MealList mealData={mealData} />}</div>
+      <div className='Adverts'>{mealData && <Advertisements />}</div>
+      <div className='Footer'>
         <Footer />
       </div>
     </div>
