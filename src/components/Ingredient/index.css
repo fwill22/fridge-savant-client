@@ -15,9 +15,10 @@
   padding: 10%;
   font-size: 30px;
   color: #3f3f3f;
-  height: 120px;
+  height: 170px;
   background-repeat: no-repeat;
-  background-position: bottom center;
+  background-position-x: 50%;
+  background-position-y: 100%;
 }
 
 .ingredient-icon {
