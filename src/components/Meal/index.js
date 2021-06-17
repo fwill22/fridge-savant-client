@@ -16,9 +16,6 @@ const Meal = ({ meal }) => {
       : setBookmarkColour(''); // delete request;
   };
 
-  // post request
-  // delete request
-
   return (
     <div className='meal-card'>
       <img src={meal.image} alt='your meal' />
@@ -37,15 +34,10 @@ const Meal = ({ meal }) => {
             })}
           </ul>
         </div>
-        <button
-          className='more-info-meal'
-          type='button'
-          onClick={(e) => {
-            e.preventDefault();
-            window.location.href = `${meal.sourceUrl}`;
-          }}
-        >
-          View this recipe...
+        <button className='more-info-meal' type='button'>
+          <a href={meal.sourceUrl} target='_blank' rel='noreferrer'>
+            View this recipe...
+          </a>
         </button>
         <EmailShare
           className='email-share-btn'
