@@ -68,10 +68,10 @@
 .formButton {
   display: inline-block;
   padding: 0.35em 1.2em;
-  border: 0.1em solid black;
+  border-style: none;
   background-color: white;
   margin: 0 0.3em 0.3em 0;
-  border-radius: 20px;
+  border-radius: 5px;
   box-sizing: border-box;
   text-decoration: none;
   font-family: 'Roboto', sans-serif;
