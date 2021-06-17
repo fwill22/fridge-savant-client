@@ -35,6 +35,19 @@ const Meal = ({ meal }) => {
     );
   };
 
+  const getBookmark = async () => {
+    const response = await axios.get("http://localhost:5000/api/bookmarks", {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${getAuthToken()}`,
+      },
+    });
+    console.log(response.data);
+    return response.data;
+  };
+
+  getBookmark();
+
   return (
     <div className="meal-card">
       <img src={meal.image} alt="your meal" />
