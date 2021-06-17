@@ -42,7 +42,6 @@ const Meal = ({ meal }) => {
         Authorization: `Bearer ${getAuthToken()}`,
       },
     });
-    console.log(response.data);
     return response.data;
   };
 

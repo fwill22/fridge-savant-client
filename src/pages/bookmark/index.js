@@ -12,10 +12,12 @@ const Bookmark = () => {
 
   const getBookmarks = async () => {
     let bookmarkIds = await getBookmarkAll();
+    console.log(bookmarkIds)
     let bookmarkIdString = bookmarkIds.join(",");
     const response = await axios.get(
       `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ids=${bookmarkIdString}`
     );
+    console.log(response)
     setBookmarkData(response.data);
   };
 
