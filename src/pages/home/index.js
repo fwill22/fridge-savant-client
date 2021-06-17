@@ -33,7 +33,7 @@ const Home = () => {
   const getMealInfo = (ingredients) => {
     axios
       .get(
-        `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY5}&ranking=2&ingredients=${ingredients}`
+        `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ranking=2&ingredients=${ingredients}`
       )
       .then((response) => {
         setMealIds(mealIds.push(formatMealIds(response)));
@@ -48,10 +48,11 @@ const Home = () => {
     let mealIdString = mealIds.join();
     axios
       .get(
-        `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY5}&ids=${mealIdString}`
+        `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ids=${mealIdString}`
       )
       .then((response) => {
         setMealData(response.data);
+        console.log(response.data);
         resetMealIds();
       });
   };
@@ -81,22 +82,22 @@ const Home = () => {
   //flash message for creating bookmarks / you have already bookmarked this + log out
 
   return (
-    <div className="Home">
-      <div className="Header">
+    <div class="Home">
+      <div class="Header">
         <Header />
       </div>
-      <div className="WelcomeText">
+      <div class="WelcomeText">
         <WelcomeText />
       </div>
-      <div className="Slider">
+      <div class="Slider">
         <Slider />
       </div>
       <SearchBox addIngredient={addIngredient} />
 
-      <div className="Ingredients">
+      <div class="Ingredients">
         <IngredientList basket={basket} deleteIngredient={removeIngredient} />
       </div>
-      <div className="IngredientsOptions">
+      <div class="IngredientsOptions">
         {basket.length > 0 && (
           <>
             <button
@@ -118,11 +119,9 @@ const Home = () => {
           </>
         )}
       </div>
-      <div className="Recipes">
-        {mealData && <MealList mealData={mealData} />}
-      </div>
-      <div className="Adverts">{mealData && <Advertisements />}</div>
-      <div className="Footer">
+      <div class="Recipes">{mealData && <MealList mealData={mealData} />}</div>
+      <div class="Adverts">{mealData && <Advertisements />}</div>
+      <div class="Footer">
         <Footer />
       </div>
     </div>

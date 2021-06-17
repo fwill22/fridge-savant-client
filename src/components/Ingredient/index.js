@@ -12,7 +12,7 @@ const Ingredient = ({ name, deleteIngredient }) => {
   useEffect(() => {
     axios
       .get(
-        `https://api.spoonacular.com/food/ingredients/search?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY5}&query=${name}`
+        `https://api.spoonacular.com/food/ingredients/search?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&query=${name}`
       )
       .then((response) => {
         setIngredientImage(

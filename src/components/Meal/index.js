@@ -5,57 +5,48 @@ import FacebookShare from "../FacebookShare";
 import WhatsappShare from "../WhatsappShare";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-regular-svg-icons";
-import axios from "axios";
 import { capitalizeFirstLetter } from "../../lib/string-utils";
+import axios from "axios";
+import { getAuthToken } from "../../lib/token";
 
 const Meal = ({ meal }) => {
   const [bookmarkColour, setBookmarkColour] = useState("");
 
   const changeColour = () => {
-    if (bookmarkColour === "") {
-      setBookmarkColour("-goldbutton");
-      flagBookmark(meal);
-    } else {
-      setBookmarkColour("");
-      unBookmark(meal);
-    }
+    bookmarkColour === ""
+      ? setBookmarkColour("-goldbutton") // post request
+      : setBookmarkColour(""); // delete request;
   };
 
-  const config = {
-    headers: {
-      "Content-Type": "appplication/json",
-      Authorization: `Bearer ${localStorage.getItem("fsStoreToken")}`,
-    },
-  };
+  const saveBookmark = () => {
+    changeColour();
 
-  const flagBookmark = async (meal) => {
-    const mealObj = {
-      recipeID: `${meal.id}`,
-    };
-    const req = await axios.post(
+    const response = axios.post(
       "http://localhost:5000/api/bookmarks",
-      meal.id.toString(),
-      config
+      {
+        recipeId: meal.id.toString(),
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${getAuthToken()}`,
+        },
+      }
     );
-    console.log(meal.id.toString());
   };
 
-  const unBookmark = async (meal) => {
-    const req = await axios.delete(
-      "http://localhost:5000/api/bookmarks/:id",
-      meal,
-      config
-    );
-    console.log(req);
+  const getBookmark = async () => {
+    const response = await axios.get("http://localhost:5000/api/bookmarks", {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${getAuthToken()}`,
+      },
+    });
+    console.log(response.data);
+    return response.data;
   };
 
-  const getAllBookmark = async () => {
-    const res = await axios
-      .get("http://localhost:5000/api/bookmarks", config)
-      .then((res) => console.log(res));
-  };
-
-  // getAllBookmark();
+  getBookmark();
 
   return (
     <div className="meal-card">
@@ -75,15 +66,10 @@ const Meal = ({ meal }) => {
             })}
           </ul>
         </div>
-        <button
-          className="more-info-meal"
-          type="button"
-          onClick={(e) => {
-            e.preventDefault();
-            window.location.href = `${meal.sourceUrl}`;
-          }}
-        >
-          View this recipe...
+        <button className="more-info-meal" type="button">
+          <a href={meal.sourceUrl} target="_blank" rel="noreferrer">
+            View this recipe...
+          </a>
         </button>
         <EmailShare
           className="email-share-btn"
@@ -102,7 +88,7 @@ const Meal = ({ meal }) => {
           icon={faBookmark}
           size="2x"
           className={`bookmark-icon${bookmarkColour}`}
-          onClick={changeColour}
+          onClick={saveBookmark}
         />
       </div>
     </div>

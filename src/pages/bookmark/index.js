@@ -1,44 +1,52 @@
-import React from 'react';
-import './index.css';
-import Header from '../../components/Header';
-import UserText from '../../components/UserText';
-import MealList from '../../components/MealList';
-
-const mealData = [
-  {
-    image:
-      'https://images-na.ssl-images-amazon.com/images/I/710X7iyZ6kL._AC_SL1500_.jpg',
-    title: 'test1',
-    summary: 'testSummary1',
-    readyInMinutes: 5,
-  },
-  {
-    image:
-      'https://images-na.ssl-images-amazon.com/images/I/710X7iyZ6kL._AC_SL1500_.jpg',
-    title: 'test2',
-    summary: 'testSummary2',
-    readyInMinutes: 5,
-  },
-  {
-    image:
-      'https://images-na.ssl-images-amazon.com/images/I/710X7iyZ6kL._AC_SL1500_.jpg',
-    title: 'test3',
-    summary: 'testSummary3',
-    readyInMinutes: 5,
-  },
-];
+import React, { useEffect, useState } from "react";
+import "./index.css";
+import axios from "axios";
+import { getAuthToken } from "../../lib/token";
+import Header from "../../components/Header";
+import UserText from "../../components/UserText";
+import MealList from "../../components/MealList";
+import Footer from "../../components/Footer";
 
 const Bookmark = () => {
+  const [bookmarkData, setBookmarkData] = useState([]);
+
+  const getBookmarks = async () => {
+    let bookmarkIds = await getBookmarkAll();
+    let bookmarkIdString = bookmarkIds.join(",");
+    const response = await axios.get(
+      `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ids=${bookmarkIdString}`
+    );
+    setBookmarkData(response.data);
+  };
+
+  const getBookmarkAll = async () => {
+    const response = await axios.get("http://localhost:5000/api/bookmarks", {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${getAuthToken()}`,
+      },
+    });
+    return response.data;
+  };
+
+  document.addEventListener("DOMContentLoaded", () => {
+    getBookmarks();
+  });
+
   return (
-    <div className='Bookmark'>
-      <div className='Header'>
+    <div className="Bookmark">
+      <div className="Header">
         <Header />
       </div>
-      <div className='UserText'>
+      <div className="UserText">
         <UserText />
       </div>
-      <h1>Your Saved Recipes</h1>
-      <MealList mealData={mealData} />
+      <div class="Recipes">
+        <MealList mealData={bookmarkData} />
+      </div>
+      <div class="Footer">
+        <Footer />
+      </div>
     </div>
   );
 };

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCarrot } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
 
 const SearchBox = ({ addIngredient }) => {
   const [ingredientInput, setIngredientInput] = useState("");
