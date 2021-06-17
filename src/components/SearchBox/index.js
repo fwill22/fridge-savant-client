@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCarrot } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
 
 const SearchBox = ({ addIngredient }) => {
   const [ingredientInput, setIngredientInput] = useState("");
@@ -16,15 +15,15 @@ const SearchBox = ({ addIngredient }) => {
   }
 
   return (
-    <div class="SearchBox">
-      <div class="form-container">
-        <div class="form-tab">
-          <div class="search-field">
-            <FontAwesomeIcon icon={faCarrot} class="search-icon" />
+    <div className="SearchBox">
+      <div className="form-container">
+        <div className="form-tab">
+          <div className="search-field">
+            <FontAwesomeIcon icon={faCarrot} className="search-icon" />
             <form>
               <input
                 type="text"
-                class="ingredient-input"
+                className="ingredient-input"
                 placeholder="What's in your fridge?"
                 value={ingredientInput}
                 onChange={(e) => setIngredientInput(e.target.value)}
@@ -32,7 +31,7 @@ const SearchBox = ({ addIngredient }) => {
             </form>
           </div>
           <div
-            class="add-ingredient-btn"
+            className="add-ingredient-btn"
             onClick={() =>
               queryChange(ingredientInput)
             }

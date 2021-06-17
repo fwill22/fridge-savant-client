@@ -1,6 +1,8 @@
 import React, { useState, useContext } from "react";
 import { StoreContext } from "../../providers/store";
 import "./index.css";
+import { FlashContext } from '../../providers/Flash';
+import  { useHistory } from 'react-router-dom'
 
 const LoginForm = ({ handleCardFlip }) => {
   const [state, actions] = useContext(StoreContext);
@@ -8,6 +10,8 @@ const LoginForm = ({ handleCardFlip }) => {
     email: "",
     password: "",
   });
+  const {createFlashMessage} = useContext(FlashContext);
+  const history = useHistory()
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -17,14 +21,21 @@ const LoginForm = ({ handleCardFlip }) => {
     }));
   };
 
-  const handleLoginSubmit = (event) => {
+  const handleLoginSubmit = async (event) => {
     event.preventDefault();
-    actions.signIn(logInDetails);
-  };
-
-  const handleGetUser = (event) => {
-    event.preventDefault();
-    actions.getUser();
+    const status = await actions.signIn(logInDetails);
+    if (status >= 400) {
+      createFlashMessage({
+        type: 'error',
+        message: 'Invalid username or password.'
+      })
+    } else if (status >= 200) {
+      createFlashMessage({
+        type: 'success',
+        message: 'Successfully logged in.' //`Successfully logged in. Welcome ${state.user.name}!` - would like but state not updating in time
+      })
+      history.push('/')
+    }
   };
 
   return (
@@ -32,13 +43,6 @@ const LoginForm = ({ handleCardFlip }) => {
       <h2 className="loginTitle" data-testid="loginTitle">
         Login
       </h2>
-      {state && state.user && (
-        <div>
-          you are:
-          <p>{state.user.name}</p>
-          <button onClick={handleGetUser}>Ask for yourself again ?</button>
-        </div>
-      )}
       <form onSubmit={handleLoginSubmit}>
         <input
           type="email"

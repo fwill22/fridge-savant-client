@@ -1,12 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './index.css';
+import img1 from './images/carousel1.jpeg'
+import img2 from './images/carousel2.jpeg'
+import img3 from './images/carousel3.jpeg'
+import img4 from './images/carousel4.jpeg'
 
 const colors = [
-  'https://www.simplyrecipes.com/thmb/O-rhPnz2V3hdqKFPij8NlwZIKqs=/2376x1584/filters:fill(auto,1)/Simply-Recipes-Quesadilla-LEAD-5-55da42a2a306497c85b1328385e44d85.jpg',
-  'https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2018/12/Shakshuka-19.jpg',
-  'https://static01.nyt.com/images/2019/05/15/dining/14Iranian6-promo/merlin_154113903_5b2b32c0-3c7b-45bd-9465-e300b8ea687f-superJumbo.jpg',
-  'https://media.healthyfood.com/wp-content/uploads/2019/08/Spice-rubbed-fish-with-quinoa-and-kumara-salad-1024x652.jpg',
-];
+  img1,
+  img2,
+  img3,
+  img4
+  ];
 const delay = 4000;
 
 const Slider = () => {

@@ -1,70 +1,160 @@
-# Getting Started with Create React App
+<img src="public/assets/images/Copy%20of%20Fridge%20Savant%20Logo%20Horizontal.gif" alt="logo" width="850" />
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Concept
+----------------------------------------
+[Demo Gif]
 
-## Available Scripts
+----------------------------------------------
 
-In the project directory, you can run:
+<p><strong><em>Fridge Savant is a virtual kitchen assistant to help you make the best with what you've got.</em></strong></p>
 
-### `yarn start`
+<p> Designed to inspire creativity in the kitchen when your fridge looks bare, the app makes decision making easier when it comes to meal times. By encouraging you to use up the ingredients you have to hand, Fridge Savant helps you to reduce food waste, and so manage your budget better. </p>
+
+----------------------------------------------
+## Table of Contents
+----------------------------------------
+  - [Concept](#concept)
+  - [Setup](#setup)
+  - [Testing and Linting](#testing-and-linting)
+    - [Test Coverage](#test-coverage)
+  - [Features](#features)
+  - [Tech Stack](#tech-stack)
+    - [Dependencies](#dependencies)
+  - [Design and Approach](#design-and-approach)
+    - [Project Management](#project-management)
+    - [User stories](#user-stories)
+    - [Diagrams and Models](#diagrams)
+  - [Project Goals](#project-goals)
+  - [Reflections](#reflections)
+
+----------------------------------------------
+## Setup 
+----------------------------------------
+To run the app - clone this repo and install dependencies: \
+\
+`Client Side`
+```
+$ git clone git@github.com:jasonrowsell/fridge-savant-client.git
+$ cd fridge-savant-client
+$ yarn install
+```
+Create and configure `.env` to add your API key
+```
+(config instructions)
+```
+`Server Side`
+The server side for this project can be found in a separate repo [here](https://github.com/mikejeuga/fridge-savant-server)
+```
+(instructions)
+```
+In the project directory, run:
+
+```
+ yarn start
+```
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+----------------------------------------
+## Testing and Linting
+----------------------------------------
+### Run Tests
+```
+yarn test
+```
+### Run Linting
+```
 
-### `yarn test`
+```
+### Test Coverage
+(...)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---------------------------------------
+## Features
+----------------------------------------
+- [x] Feature 1
+- [x] Feature 2
+- [x] Feature 3
+- [ ] 
+etc...
+## Tech Stack
+----------------------------------------
+### Codebase:
+- MongoDB
+- Express
+- React
+- Node
 
-### `yarn build`
+### Testing Franmework:
+Front end: 
+- Jest
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Back end: 
+- (...)
+<br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Dependencies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+(......)
+<br>
 
-### `yarn eject`
+----------------------------------------
+## Design and Approach
+----------------------------------------
+### Project Management
+- [Trello Board](https://trello.com/b/U40Atkm9/fridge)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### User stories
+```
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Diagrams
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<details>
+  <summary> Design mock up </summary> <br>
+    <img src="public/assets/images/WebsiteMockUp.png" />
+  <br>
+</details>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<details>
+  <summary> MVP sequence diagram </summary> <br>
+    <img src="public/assets/images/mvpsequence.png" />
+  <br>
+</details>
+<br>
 
-## Learn More
+----------------------------------------
+## Project Goals
+----------------------------------------
+- To learn a new tech stack (MERN)
+- 95% Test coverage
+- 
+----------------------------------------
+## Reflections
+----------------------------------------
+(Working approach/values, problems and solutions, learnings etcs. )
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+----------------------------------------
+## Progression Ideas
+----------------------------------------
+-  
+- 
+- 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+----------------------------------------
 
-### Code Splitting
+## *Fridge Savant* was built by:
+- Matt Dawson | [GitHub](https://github.com/MattDawson2020)
+- Noa Farber | [GitHub](https://github.com/noarfarber)
+- Kane Gin | [GitHub](https://github.com/KaneG9)
+- Mike Jeuga | [GitHub](https://github.com/mikejeuga)
+- Jason Rowsell | [GitHub](https://github.com/jasonrowsell)
+- Finn Williamson | [GitHub](https://github.com/fwill22)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+[Top](#concept)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
