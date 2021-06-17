@@ -2,6 +2,7 @@ import React from 'react';
 import './index.css';
 import logo from './images/logo.png';
 import { Link } from "react-router-dom";
+import {clearStoreToken} from  '../../lib/token'
 
 const Header = () => {
   return (
@@ -22,7 +23,7 @@ const Header = () => {
               <span>My Recipes</span>
             </Link>
             <Link to="/login">
-              <span>Log Out</span>
+              <span onClick={() => clearStoreToken()}>Log Out</span>
             </Link>
           </nav>
         </div>

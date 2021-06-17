@@ -1,14 +1,14 @@
-import React, { useState, useContext } from 'react';
-import Advertisements from '../../components/Advertisements';
-import MealList from '../../components/MealList';
-import IngredientList from '../../components/IngredientList';
-import Header from '../../components/Header';
-import Slider from '../../components/Slider';
-import WelcomeText from '../../components/WelcomeText';
-import Footer from '../../components/Footer';
-import axios from 'axios';
-import SearchBox from '../../components/SearchBox';
-import { StoreContext } from '../../providers/store';
+import React, { useState, useContext } from "react";
+import Advertisements from "../../components/Advertisements";
+import MealList from "../../components/MealList";
+import IngredientList from "../../components/IngredientList";
+import Header from "../../components/Header";
+import Slider from "../../components/Slider";
+import WelcomeText from "../../components/WelcomeText";
+import Footer from "../../components/Footer";
+import axios from "axios";
+import SearchBox from "../../components/SearchBox";
+import { StoreContext } from "../../providers/store";
 
 const Home = () => {
   const [{ basket }, { addIngredient, removeIngredient, clearIngredients }] =
@@ -40,7 +40,7 @@ const Home = () => {
         getMealData(mealIds);
       })
       .catch(() => {
-        ('Error');
+        ("Error");
       });
   };
 
@@ -58,11 +58,11 @@ const Home = () => {
 
   const searchMeals = () => {
     const ingredientNames = basket.map((ingredient) => ingredient.name);
-    getMealInfo(ingredientNames.join(',+'));
+    getMealInfo(ingredientNames.join(",+"));
   };
 
   const formatMealIds = (response) => {
-    return response.data.map((data) => data.id).join(',');
+    return response.data.map((data) => data.id).join(",");
   };
 
   const resetMealIds = () => {
@@ -103,21 +103,22 @@ const Home = () => {
               onClick={() => {
                 searchMeals();
               }}
-              className='search-recipe-button'
+              className="search-recipe-button"
             >
               find recipes
             </button>
 
             <button
-              id='reset-basket-button'
+              id="reset-basket-button"
               onClick={clearAll}
-              className='reset-basket-button'
+              className="reset-basket-button"
             >
               clear ingredients
             </button>
           </>
         )}
       </div>
+
       <div className='Recipes'>{mealData && <MealList mealData={mealData} />}</div>
       <div className='Adverts'>{mealData && <Advertisements />}</div>
       <div className='Footer'>

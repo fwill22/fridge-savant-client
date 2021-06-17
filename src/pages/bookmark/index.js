@@ -1,131 +1,52 @@
-import React from 'react';
-import './index.css';
-import Header from '../../components/Header';
-import UserText from '../../components/UserText';
-import MealList from '../../components/MealList';
-import Footer from '../../components/Footer';
-
-const mealData = [
-  {
-    image:
-      'https://images-na.ssl-images-amazon.com/images/I/710X7iyZ6kL._AC_SL1500_.jpg',
-    title: 'test1',
-    extendedIngredients: [
-      {
-        id: 5006,
-        aisle: 'Meat',
-        image: 'whole-chicken.jpg',
-        consistency: 'solid',
-        name: 'chicken',
-        nameClean: 'whole chicken',
-        original: '2 pounds chicken',
-        originalString: '2 pounds chicken',
-        originalName: 'chicken',
-        amount: 2,
-        unit: 'pounds',
-        meta: [],
-        metaInformation: [],
-        measures: {
-          us: {
-            amount: 2,
-            unitShort: 'lb',
-            unitLong: 'pounds',
-          },
-          metric: {
-            amount: 907.185,
-            unitShort: 'g',
-            unitLong: 'grams',
-          },
-        },
-      },
-    ],
-    readyInMinutes: 5,
-  },
-  {
-    image:
-      'https://images-na.ssl-images-amazon.com/images/I/710X7iyZ6kL._AC_SL1500_.jpg',
-    title: 'test2',
-    extendedIngredients: [
-      {
-        id: 5006,
-        aisle: 'Meat',
-        image: 'whole-chicken.jpg',
-        consistency: 'solid',
-        name: 'chicken',
-        nameClean: 'whole chicken',
-        original: '2 pounds chicken',
-        originalString: '2 pounds chicken',
-        originalName: 'chicken',
-        amount: 2,
-        unit: 'pounds',
-        meta: [],
-        metaInformation: [],
-        measures: {
-          us: {
-            amount: 2,
-            unitShort: 'lb',
-            unitLong: 'pounds',
-          },
-          metric: {
-            amount: 907.185,
-            unitShort: 'g',
-            unitLong: 'grams',
-          },
-        },
-      },
-    ],
-    readyInMinutes: 5,
-  },
-  {
-    image:
-      'https://images-na.ssl-images-amazon.com/images/I/710X7iyZ6kL._AC_SL1500_.jpg',
-    title: 'test3',
-    extendedIngredients: [
-      {
-        id: 5006,
-        aisle: 'Meat',
-        image: 'whole-chicken.jpg',
-        consistency: 'solid',
-        name: 'chicken',
-        nameClean: 'whole chicken',
-        original: '2 pounds chicken',
-        originalString: '2 pounds chicken',
-        originalName: 'chicken',
-        amount: 2,
-        unit: 'pounds',
-        meta: [],
-        metaInformation: [],
-        measures: {
-          us: {
-            amount: 2,
-            unitShort: 'lb',
-            unitLong: 'pounds',
-          },
-          metric: {
-            amount: 907.185,
-            unitShort: 'g',
-            unitLong: 'grams',
-          },
-        },
-      },
-    ],
-    readyInMinutes: 5,
-  },
-];
+import React, { useEffect, useState } from "react";
+import "./index.css";
+import axios from "axios";
+import { getAuthToken } from "../../lib/token";
+import Header from "../../components/Header";
+import UserText from "../../components/UserText";
+import MealList from "../../components/MealList";
+import Footer from "../../components/Footer";
 
 const Bookmark = () => {
+  const [bookmarkData, setBookmarkData] = useState([]);
+
+  const getBookmarks = async () => {
+    let bookmarkIds = await getBookmarkAll();
+    console.log(bookmarkIds)
+    let bookmarkIdString = bookmarkIds.join(",");
+    const response = await axios.get(
+      `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ids=${bookmarkIdString}`
+    );
+    console.log(response)
+    setBookmarkData(response.data);
+  };
+
+  const getBookmarkAll = async () => {
+    const response = await axios.get("http://localhost:5000/api/bookmarks", {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${getAuthToken()}`,
+      },
+    });
+    return response.data;
+  };
+
+  document.addEventListener("DOMContentLoaded", () => {
+    getBookmarks();
+  });
+
   return (
-    <div className='Bookmark'>
-      <div className='Header'>
+    <div className="Bookmark">
+      <div className="Header">
         <Header />
       </div>
-      <div className='UserText'>
+      <div className="UserText">
         <UserText />
       </div>
-      <div className='Recipes'>
-        <MealList mealData={mealData} />
+      <div class="Recipes">
+        <MealList mealData={bookmarkData} />
       </div>
-      <div className='Footer'>
+      <div class="Footer">
         <Footer />
       </div>
     </div>
