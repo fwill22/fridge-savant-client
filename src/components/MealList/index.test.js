@@ -10,25 +10,25 @@ describe('<MealList/>', () => {
         {
           image: 'http://fun.pics/123',
           title: 'test1',
-          summary: 'testSummary1',
-          readyInMinutes: 5,
+          ingredients: 'apple',
+          readyInMinutes: 5
         },
         {
           image: 'http://fun.pics/456',
           title: 'test2',
-          summary: 'testSummary2',
-          readyInMinutes: 5,
-        },
-      ],
-    };
-  });
+          ingredients: 'pear',
+          readyInMinutes: 5
+        }
+      ]
+    }
+  })
 
-  it('should rendered passed mealData as meals', () => {
-    const rendered = render(<MealList {...defaultProps} />);
 
     expect(rendered.getByText(/test1/i)).toBeInTheDocument();
-    expect(rendered.getByText(/testSummary1/i)).toBeInTheDocument();
+    expect(rendered.getByText(/apple/i)).toBeInTheDocument();
     expect(rendered.getByText(/test2/i)).toBeInTheDocument();
-    expect(rendered.getByText(/testSummary2/i)).toBeInTheDocument();
-  });
-});
+    expect(rendered.getByText(/pear/i)).toBeInTheDocument();
+    
+  })
+
+})

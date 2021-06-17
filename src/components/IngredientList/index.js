@@ -9,7 +9,7 @@ const IngredientList = ({ basket, deleteIngredient }) => {
         <Ingredient
           key={`ingredient-${ingredient.name}`}
           {...{ name: ingredient.name }}
-          {...{ image: ingredient.image }}
+          // {...{ image: ingredient.image }}
           {...{ deleteIngredient: deleteIngredient }}
         />
       ))}

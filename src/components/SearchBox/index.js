@@ -5,6 +5,15 @@ import { faCarrot } from "@fortawesome/free-solid-svg-icons";
 const SearchBox = ({ addIngredient }) => {
   const [ingredientInput, setIngredientInput] = useState("");
 
+ const queryChange = (ingredientInput) => {
+
+   if(ingredientInput === "" ) {
+     return
+   } 
+    addIngredient({ name: ingredientInput.toLowerCase()})
+    setIngredientInput("")
+  }
+
   return (
     <div className="SearchBox">
       <div className="form-container">
@@ -24,7 +33,7 @@ const SearchBox = ({ addIngredient }) => {
           <div
             className="add-ingredient-btn"
             onClick={() =>
-              addIngredient({ name: ingredientInput.toLowerCase() })
+              queryChange(ingredientInput)
             }
           >
             <p>add ingredient</p>

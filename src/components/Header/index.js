@@ -1,14 +1,15 @@
 import React from 'react';
 import './index.css';
+import logo from './images/logo.png';
 import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <div>
-      <header className='header-outer'>
-        <div className='header-inner responsive-wrapper'>
-          <div className='header-logo' >
-            <img src='https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo3.jpg' data-testid='headerLogo'/>
+      <header class='header-outer'>
+        <div class='header-inner responsive-wrapper'>
+          <div class='header-logo'>
+            <img src={logo} />
           </div>
           <nav className='header-navigation' data-testid='navbar'>
             <Link to="/">

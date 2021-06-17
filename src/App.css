@@ -9,7 +9,7 @@
     'WelcomeText Slider Slider'
     'SearchBox SearchBox SearchBox'
     'Ingredients Ingredients IngredientsOptions'
-    'Recipes Recipes User'
+    'Recipes Recipes Adverts'
     'Footer Footer Footer';
   width: 100vw;
 
@@ -63,14 +63,12 @@
   padding: 10px 10px 10px 40px;
 }
 
-.User {
-  grid-area: User;
-  background-color: orange;
+.Adverts {
+  grid-area: Adverts;
 }
 
 .Footer {
   grid-area: Footer;
-  background-color: yellow;
 }
 
 /* Add Ingredients */
