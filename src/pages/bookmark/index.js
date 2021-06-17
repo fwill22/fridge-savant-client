@@ -122,10 +122,10 @@ const Bookmark = () => {
       <div className='UserText'>
         <UserText />
       </div>
-      <div class='Recipes'>
+      <div className='Recipes'>
         <MealList mealData={mealData} />
       </div>
-      <div class='Footer'>
+      <div className='Footer'>
         <Footer />
       </div>
     </div>

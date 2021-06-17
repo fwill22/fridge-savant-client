@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div>
-      <header class='header-outer'>
-        <div class='header-inner responsive-wrapper'>
-          <div class='header-logo'>
+      <header className='header-outer'>
+        <div className='header-inner responsive-wrapper'>
+          <div className='header-logo'>
             <img src={logo} />
           </div>
           <nav className='header-navigation' data-testid='navbar'>
