@@ -37,6 +37,7 @@ const Login = () => {
   const { createFlashMessage } = useContext(FlashContext);
 
   const handleSignUpChange = (event) => {
+    console.log(event)
     const { name, value } = event.target;
     setSignUpDetails((prevState) => ({
       ...prevState,
@@ -144,28 +145,36 @@ const Login = () => {
             <input
               type='text'
               placeholder='Name'
+              name='name'
               onChange={handleSignUpChange}
+              value={signUpDetails.name}
             />
             <input
               type='email'
+              name='email'
               placeholder='Email'
               onChange={handleSignUpChange}
+              value={signUpDetails.email}
             />
             <input
               type='password'
+              name='password'
               placeholder='Password'
+              value={signUpDetails.password}
               onChange={handleSignUpChange}
             />
             <input
               type='password'
+              name='confirmPassword'
               placeholder='Confirm Password'
+              value={signUpDetails.confirmPassword}
               onChange={handleSignUpChange}
             />
             <button type='submit'>Sign Up</button>
           </form>
         </div>
         <div className='login-form-container sign-in-container'>
-          <form action='#'>
+          <form onSubmit={handleLoginSubmit}>
             <h1>Sign in</h1>
             <div className='social-container'>
               <a href='#' className='social'>
@@ -183,11 +192,13 @@ const Login = () => {
               type='email'
               placeholder='Email'
               onChange={handleLoginChange}
+              name='email'
               value={logInDetails.email}
             />
             <input
               type='password'
               placeholder='Password'
+              name='password'
               onChange={handleLoginChange}
               value={logInDetails.password}
             />
