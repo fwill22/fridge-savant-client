@@ -36,8 +36,8 @@
 .Bookmark .meal-card img {
   margin: 0.9em;
   border-radius: 0.5rem;
-  height: 80%;
-  max-width: 18em;
+  height: 60%;
+  max-width: 9em;
   object-fit: contain;
   flex: 1 1 auto;
 }
@@ -46,4 +46,30 @@
   padding: 0;
   justify-content: center;
   margin: auto;
+}
+
+.Bookmark .more-info-meal {
+  margin-bottom: 40px;
+}
+
+.Bookmark .whatsappShare * {
+  bottom: 15px;
+  left: 20px;
+}
+.Bookmark .facebookShare * {
+  bottom: 15px;
+  left: 60px;
+}
+.Bookmark .emailShare * {
+  bottom: 15px;
+  left: 100px;
+}
+
+.svg-inline--fa {
+  margin-top: 5px;
+  margin-right: 55px;
+}
+
+.Bookmark .Recipes {
+  margin-bottom: 200px;
 }

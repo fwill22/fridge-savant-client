@@ -3,27 +3,112 @@ import './index.css';
 import Header from '../../components/Header';
 import UserText from '../../components/UserText';
 import MealList from '../../components/MealList';
+import Footer from '../../components/Footer';
 
 const mealData = [
   {
     image:
       'https://images-na.ssl-images-amazon.com/images/I/710X7iyZ6kL._AC_SL1500_.jpg',
     title: 'test1',
-    summary: 'testSummary1',
+    extendedIngredients: [
+      {
+        id: 5006,
+        aisle: 'Meat',
+        image: 'whole-chicken.jpg',
+        consistency: 'solid',
+        name: 'chicken',
+        nameClean: 'whole chicken',
+        original: '2 pounds chicken',
+        originalString: '2 pounds chicken',
+        originalName: 'chicken',
+        amount: 2,
+        unit: 'pounds',
+        meta: [],
+        metaInformation: [],
+        measures: {
+          us: {
+            amount: 2,
+            unitShort: 'lb',
+            unitLong: 'pounds',
+          },
+          metric: {
+            amount: 907.185,
+            unitShort: 'g',
+            unitLong: 'grams',
+          },
+        },
+      },
+    ],
     readyInMinutes: 5,
   },
   {
     image:
       'https://images-na.ssl-images-amazon.com/images/I/710X7iyZ6kL._AC_SL1500_.jpg',
     title: 'test2',
-    summary: 'testSummary2',
+    extendedIngredients: [
+      {
+        id: 5006,
+        aisle: 'Meat',
+        image: 'whole-chicken.jpg',
+        consistency: 'solid',
+        name: 'chicken',
+        nameClean: 'whole chicken',
+        original: '2 pounds chicken',
+        originalString: '2 pounds chicken',
+        originalName: 'chicken',
+        amount: 2,
+        unit: 'pounds',
+        meta: [],
+        metaInformation: [],
+        measures: {
+          us: {
+            amount: 2,
+            unitShort: 'lb',
+            unitLong: 'pounds',
+          },
+          metric: {
+            amount: 907.185,
+            unitShort: 'g',
+            unitLong: 'grams',
+          },
+        },
+      },
+    ],
     readyInMinutes: 5,
   },
   {
     image:
       'https://images-na.ssl-images-amazon.com/images/I/710X7iyZ6kL._AC_SL1500_.jpg',
     title: 'test3',
-    summary: 'testSummary3',
+    extendedIngredients: [
+      {
+        id: 5006,
+        aisle: 'Meat',
+        image: 'whole-chicken.jpg',
+        consistency: 'solid',
+        name: 'chicken',
+        nameClean: 'whole chicken',
+        original: '2 pounds chicken',
+        originalString: '2 pounds chicken',
+        originalName: 'chicken',
+        amount: 2,
+        unit: 'pounds',
+        meta: [],
+        metaInformation: [],
+        measures: {
+          us: {
+            amount: 2,
+            unitShort: 'lb',
+            unitLong: 'pounds',
+          },
+          metric: {
+            amount: 907.185,
+            unitShort: 'g',
+            unitLong: 'grams',
+          },
+        },
+      },
+    ],
     readyInMinutes: 5,
   },
 ];
@@ -37,8 +122,12 @@ const Bookmark = () => {
       <div className='UserText'>
         <UserText />
       </div>
-      <h1>Your Saved Recipes</h1>
-      <MealList mealData={mealData} />
+      <div class='Recipes'>
+        <MealList mealData={mealData} />
+      </div>
+      <div class='Footer'>
+        <Footer />
+      </div>
     </div>
   );
 };

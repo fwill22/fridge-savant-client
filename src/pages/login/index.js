@@ -10,7 +10,6 @@ const Login = () => {
 
   return (
     <div className='login-container'>
-      <h1 className='login-header'>Fridge Savant</h1>
       <div className='form-wrapper'>
         <div className={`login-card ${isRotated ? 'rotated' : ''}`}>
           <div className='front'>

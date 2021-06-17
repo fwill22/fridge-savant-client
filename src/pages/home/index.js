@@ -52,6 +52,7 @@ const Home = () => {
       )
       .then((response) => {
         setMealData(response.data);
+        console.log(response.data);
         resetMealIds();
       });
   };
