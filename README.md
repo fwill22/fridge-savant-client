@@ -2,7 +2,7 @@
 
 ## Concept
 ----------------------------------------
-[Demo Gif]
+Watch a demo of our app [here](https://youtu.be/iFPkQZnyFmI)!
 
 ----------------------------------------------
 
@@ -73,11 +73,12 @@ yarn test
 ---------------------------------------
 ## Features
 ----------------------------------------
-- [x] Feature 1
-- [x] Feature 2
-- [x] Feature 3
-- [ ] 
-etc...
+- [x] User accounts
+- [x] Recipe search
+- [x] Favourite recipes
+- [x] Sharing recipes via social channels
+- [x] Personal profile page for stored recipes
+
 
 ----------------------------------------
 ## Tech Stack
@@ -88,12 +89,14 @@ etc...
 - React
 - Node
 
-### Testing Franmework:
+### Testing Framework:
 Front end: 
 - Jest
 
 Back end: 
-- (...)
+- Jest
+- Postman
+
 <br>
 
 ### Dependencies
@@ -109,6 +112,42 @@ Back end:
 
 ### User stories
 ```
+As a User
+So that I can find new recipes,
+I want to be able to list the ingredients from my fridge.
+```
+```
+As a User
+So that I can find more recipes,
+I want to be able to add ingredients to my existing list.
+```
+
+```
+As a User
+So that I can refine my recipe search,
+I want to be able to remove ingredients from my existing list.
+```
+
+```
+As a User
+So that I can have tailored experience,
+I want to be able to have a personal profile.
+```
+
+```
+As a User
+So that I can be social,
+I want to be able to share recipes on social media platforms.
+```
+```
+As a User
+So that I don't have to search again a recipe,
+I want to be able to bookmark my favourite dishes.
+```
+```
+As a User
+So that I can have cook quickly or share again,
+I want to be able to see my favourite dishes.
 ```
 
 ### Diagrams
@@ -129,20 +168,36 @@ Back end:
 ----------------------------------------
 ## Project Goals
 ----------------------------------------
+- To build a product with clean, professional UX.
 - To learn a new tech stack (MERN)
+- Support each other's learning.
 - 95% Test coverage
-- 
+- Work as a team in an agile environment.
+- Have fun!
+
 ----------------------------------------
 ## Reflections
 ----------------------------------------
-(Working approach/values, problems and solutions, learnings etcs. )
+
+Challenges:  
+- Time pressures made it difficult for each team member to get experience over the full stack. 
+- TDD in React 
+- Building good React components
+
+Learnings:
+- Better to focus on a smaller set of features to maintain quality and scalability
+- Keep pull requests and merges small and manage them frequently for smooth progression
+- It doesn’t take very long to develop a feature past where the rest of your team can understand it, detailed retros and standups are vital
+- Even with strong planning, time is always in short supply
+- It's ok to build a temporary stage of a feature as long as there is a plan for improvement
+- Good communication underpins everything. 
 
 ----------------------------------------
 ## Progression Ideas
 ----------------------------------------
--  
-- 
-- 
+-  Pantry management system
+- Integration with online shopping systems
+- Web scraping
 
 ----------------------------------------
 
